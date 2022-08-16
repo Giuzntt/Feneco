@@ -1,14 +1,21 @@
-import React from 'react';
-import './App.css';
+import { BrowserRouter } from "react-router-dom";
+import GlobalStyles from "./Styles/globalStyle";
+import Header from "./components/Header/Header";
 
 
+import Routes from "./routes";
 
-export const App: React.FunctionComponent = () => {
-  return (  
-    <h1>
-      Hello!
+const App = (): JSX.Element => {
+  return (
 
-    </h1>
-    
+      <BrowserRouter>
+        <Header />
+        <Routes />
+        <GlobalStyles />
+        {/* <Footer /> */}
+      </BrowserRouter>
+ 
   );
 };
+
+export default App;

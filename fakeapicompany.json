@@ -3,6 +3,7 @@
     "id":"1",
     "nomeEmpresa":"Empresa 1",
     "cidade":"Sao Paulo",
+    "usuario":"usuario1",
     "estado":"SP",
     "telefone":"(11) 99999-9999",
     "email":"empresa@email.com",
