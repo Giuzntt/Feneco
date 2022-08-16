@@ -15,8 +15,11 @@ export default function Header() {
             <Link to={"/"}>
               <li> Quem somos nos</li>
             </Link>
-            <Link to={"/search"}>
+            <Link to={"/Contato"}>
               <li>Contato</li>
+            </Link>
+            <Link to={"/Login"}>
+              <li>Login</li>
             </Link>
           </ul>
         </div>

@@ -6,7 +6,7 @@ import LoginPage from "./pages/Login";
 const Router = (): JSX.Element => {
   return (
     <Routes>
-      <Route path="/" element={<LoginPage />} />
+      <Route path="/Login" element={<LoginPage />} />
       
     </Routes>
   );
