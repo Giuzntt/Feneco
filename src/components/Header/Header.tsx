@@ -12,7 +12,7 @@ export default function Header() {
             <img src={Logo} alt="Imagem Logo" />
           </Link>
           <ul>
-            <Link to={"/"}>
+            <Link to={"/Landing"}>
               <li> Quem somos nos</li>
             </Link>
             <Link to={"/Contato"}>

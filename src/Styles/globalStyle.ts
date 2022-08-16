@@ -9,4 +9,16 @@ export default createGlobalStyle`
         box-sizing: border-box;
         outline: 0;
     }
+
+    html{
+        @media (max-with: 1080px) {
+            font-size: 93.75%;
+        }
+        @media (max-with: 720px){
+            font-size: 87.5%;
+        }
+    }
+
+
+    
 `;

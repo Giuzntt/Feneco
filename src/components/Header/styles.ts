@@ -12,6 +12,7 @@ export const ContainerHeader = styled.header`
   background: #fdc201;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
+ 
   @media screen and (max-width: 768px) {
     padding: 20px;
   }
