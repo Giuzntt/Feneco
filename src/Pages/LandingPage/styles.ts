@@ -85,18 +85,39 @@ export const BannerHeader = styled.div`
 `
 
 export const MainContent = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  hr {
-    border-color: #fdc201;
+.title-main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    hr {
+        border-color: #fdc201;
+        
+        width: 30%;
+        transform: rotate(180deg);
+    }
+    h1 {
+        font-size: 30px;
+        font-weight: 700;
+        color: #fdc201;
+        text-transform: uppercase;
 
-    width: 30%;
-    transform: rotate(180deg);
-  }
-  h1 {
-    font-size: 30px;
-    font-weight: 700;
-    color: #fdc201;
-  }
+    }
+}
+
+.content-main{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div{
+        position: relative;
+        height: 397px;
+        width: 30%;
+        border-radius: 5px;
+        height: 100px;
+        border: 1px solid black;
+       
+    }
+}
+
 `;

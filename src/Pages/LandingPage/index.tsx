@@ -1,6 +1,7 @@
 import { BannerHeader, LandingContent, MainContent } from "./styles";
 import Logo from "../../Assets/images/slogan.jpg";
 import { Link } from "react-router-dom";
+import { FaCheck, FaAccessibleIcon} from "react-icons/fa";
 
 
 export default function LandingPage(){
@@ -26,12 +27,25 @@ export default function LandingPage(){
               </Link>
             </p>
           </div>
+          src/Pages/LandingPage/styles.ts
         </BannerHeader>
         <MainContent>
+          <div className="title-main">
             <hr />
             <h1>Nosso diferencial</h1>
-            <hr  />
-        </MainContent> 
+            <hr />
+          </div>
+          <div className="content-main">
+            <div className="content-item">
+              <div className="content-item-icon"><FaAccessibleIcon/></div>
+            </div>
+            <div className="content-item">
+              <div className="content-item-icon">
+                <FaCheck className="icon"/>
+              </div>
+            </div>
+          </div>
+        </MainContent>
       </LandingContent>
     );
 }
