@@ -15,16 +15,25 @@ export const LandingContent = styled.div`
 
 export const BannerHeader = styled.div`
     display: flex;
+    background-color: black;
+    opacity: 0.8;
 
     div {
         width: 50%;
         flex-direction: column;
+    img{
+        width: 95%;
+        height: 100%;
+        overflow: hidden;
+
+    }
     
     }
     .content-banner, h1,h2, p , button{
         margin: 10px 0;
         font-family: 'Open Sans', sans-serif;
         font-size: 20px;
+        
     }
     
     .content-banner{
@@ -51,9 +60,9 @@ export const BannerHeader = styled.div`
             text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
             .text-link{
-                text-decoration: none;
+                text-decoration:underline white;
                 color: #ffffff;
-                
+                margin-left: 5px;
             }
         }
         button{
@@ -74,3 +83,20 @@ export const BannerHeader = styled.div`
     }
     
 `
+
+export const MainContent = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  hr {
+    border-color: #fdc201;
+
+    width: 30%;
+    transform: rotate(180deg);
+  }
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #fdc201;
+  }
+`;

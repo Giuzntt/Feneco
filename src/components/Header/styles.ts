@@ -8,6 +8,8 @@ export const ContainerHeader = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+
   }
   background: #fdc201;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -15,7 +17,14 @@ export const ContainerHeader = styled.header`
  
   @media screen and (max-width: 768px) {
     padding: 20px;
+
+    div{
+      img{
+        width: 100%;
+      }
+    }
   }
+  
   
 
   ul li {
