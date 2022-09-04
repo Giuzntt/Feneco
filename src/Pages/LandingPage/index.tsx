@@ -1,7 +1,7 @@
 import { BannerHeader, LandingContent, MainContent } from "./styles";
 import Logo from "../../Assets/images/slogan.jpg";
 import { Link } from "react-router-dom";
-import { FaCheck, FaAccessibleIcon} from "react-icons/fa";
+import { FaCheck, FaRegChartBar} from "react-icons/fa";
 
 
 export default function LandingPage(){
@@ -37,11 +37,28 @@ export default function LandingPage(){
           </div>
           <div className="content-main">
             <div className="content-item">
-              <div className="content-item-icon"><FaAccessibleIcon/></div>
+              <div className="content-item-icon">
+                <FaCheck />
+              </div>
+              <div className="content-item-text">
+                <h3>Comprove os seus conhecimentos</h3>
+                <p>
+                  Com o nosso sistema você pode comprovar os seus conhecimentos
+                  e mostrar para as empresas que você é o candidato ideal para a
+                  vaga.
+                </p>
+              </div>
             </div>
             <div className="content-item">
               <div className="content-item-icon">
-                <FaCheck className="icon"/>
+                <FaRegChartBar />
+              </div>
+              <div className="content-item-text">
+                <h3>Otimização do trabalho</h3>
+                <p>
+                  Chega de receber dezenas de curriculos e não receber aquele
+                  candidato que você tanto queria.
+                </p>
               </div>
             </div>
           </div>
