@@ -147,6 +147,43 @@ export const MainContent = styled.div`
   }
 `;
 
+export const ProductContent = styled.div`
+.title-product {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    hr {
+      border-color: #fdc201;
 
+      width: 30%;
+      transform: rotate(180deg);
+    }
+    h1 {
+      font-size: 25px;
+      font-weight: 700;
+      color: #fdc201;
+      text-transform: uppercase;
+    }
+  }
+  h2{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    color: #CCCCCC;
+
+    p{
+      font-size: 20px;
+      font-weight: 700;
+      color: #CCCCCC;
+      
+    }
+  }
+
+  .content-product {
+    width: 100%;
+    ;
+
+  }
+  `;
 
 // Language: typescript

@@ -1,4 +1,4 @@
-import { BannerHeader, LandingContent, MainContent } from "./styles";
+import { BannerHeader, LandingContent, MainContent, ProductContent } from "./styles";
 import Logo from "../../Assets/images/slogan.jpg";
 import { Link } from "react-router-dom";
 import { FaCheck, FaRegChartBar} from "react-icons/fa";
@@ -43,9 +43,7 @@ export default function LandingPage(){
               <div className="content-item-text">
                 <h3>Comprove os seus conhecimentos</h3>
                 <p>
-                  Com o nosso sistema você pode comprovar os seus conhecimentos
-                  e mostrar para as empresas que você é o candidato ideal para a
-                  vaga.
+                  Ser avaliado com base nas microtarefas, facilitando ao recrutador eliminando perdas e otimizando processo.
                 </p>
               </div>
             </div>
@@ -63,12 +61,23 @@ export default function LandingPage(){
             </div>
           </div>
         </MainContent>
+      <ProductContent>
 
-        <div className="title-main">
+        <div className="title-product">
           <hr />
-          <h1>O Processo seletivo de uma nova forma </h1>
+          <h1>Processo seletivo unico </h1>
           <hr />
+
         </div>
+        <h2>Chega de ficar em último lugar, seu lugar é aqui com <p>Feneco Talents</p></h2>
+        <div className="content-product">
+          <div className="content-item">
+            
+          </div>
+        </div>
+      </ProductContent>
+
+
       </LandingContent>
     );
 }
