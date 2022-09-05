@@ -38,7 +38,7 @@ export default function LandingPage(){
           <div className="content-main">
             <div className="content-item">
               <div className="content-item-icon">
-                <FaCheck />
+                <FaCheck className="icon" />
               </div>
               <div className="content-item-text">
                 <h3>Comprove os seus conhecimentos</h3>
@@ -51,7 +51,7 @@ export default function LandingPage(){
             </div>
             <div className="content-item">
               <div className="content-item-icon">
-                <FaRegChartBar />
+                <FaRegChartBar className="icon" />
               </div>
               <div className="content-item-text">
                 <h3>Otimização do trabalho</h3>
@@ -63,6 +63,12 @@ export default function LandingPage(){
             </div>
           </div>
         </MainContent>
+
+        <div className="title-main">
+          <hr />
+          <h1>O Processo seletivo de uma nova forma </h1>
+          <hr />
+        </div>
       </LandingContent>
     );
 }

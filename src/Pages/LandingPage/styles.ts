@@ -83,7 +83,6 @@ export const BannerHeader = styled.div`
     }
     
 `
-
 export const MainContent = styled.div`
   .title-main {
     display: flex;
@@ -112,41 +111,42 @@ export const MainContent = styled.div`
       width: 30%;
       border-radius: 5px;
       height: 150px;
-      border: 1px solid #CCCC;
+      border: 1px solid #cccc;
       opacity: 0.8;
       box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
       display: flex;
-      
+
       align-items: center;
       .content-item-icon {
         position: relative;
-        font-size: 40px;
         margin: 0 20px;
-        color: #fdc201;
+        .icon {
+          font-size: 40px;
+          color: #fdc201;
         }
-        .content-item-text {
-            flex-direction: column;
-            height: 70%;
+      }
+      .content-item-text {
+        flex-direction: column;
+        height: 70%;
 
-
-            h3 {
-                font-size: 14px;
-                font-weight: 700;
-                color: #fdc201;
-                
-            }
-            p{
-                font-size: 13px;
-                font-weight: 400;
-                width: 95%;
-                /* justify text */
-                text-align: justify;
-                text-justify: inter-word;
-            }
+        h3 {
+          font-size: 14px;
+          font-weight: 700;
+          color: #fdc201;
         }
+        p {
+          font-size: 13px;
+          font-weight: 400;
+          width: 95%;
+          /* justify text */
+          text-align: justify;
+          text-justify: inter-word;
+        }
+      }
     }
   }
 `;
+
 
 
 // Language: typescript
