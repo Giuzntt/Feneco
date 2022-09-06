@@ -108,6 +108,7 @@ export const MainContent = styled.div`
     align-items: center;
 
     .content-item {
+      position: relative;
       width: 30%;
       border-radius: 5px;
       height: 150px;
@@ -118,7 +119,6 @@ export const MainContent = styled.div`
 
       align-items: center;
       .content-item-icon {
-        position: relative;
         margin: 0 20px;
         .icon {
           font-size: 40px;
@@ -143,18 +143,30 @@ export const MainContent = styled.div`
           text-justify: inter-word;
         }
       }
+
+      &::before{
+        /* create background; */
+        content: '';
+        position: absolute;
+        width: 20%;
+        height: 100%;
+        background-color: #fdc201;
+        opacity: 0.2;
+        border-radius: 5px;
+        z-index: -1;
+
+      }
     }
   }
 `;
 
 export const ProductContent = styled.div`
-.title-product {
+  .title-product {
     display: flex;
     justify-content: space-between;
     align-items: center;
     hr {
       border-color: #fdc201;
-
       width: 30%;
       transform: rotate(180deg);
     }
@@ -165,25 +177,64 @@ export const ProductContent = styled.div`
       text-transform: uppercase;
     }
   }
-  h2{
+  h2 {
     text-align: center;
     font-size: 20px;
     font-weight: 500;
-    color: #CCCCCC;
+    color: #cccccc;
 
-    p{
+    p {
       font-size: 20px;
       font-weight: 700;
-      color: #CCCCCC;
-      
+      color: #cccccc;
     }
   }
 
   .content-product {
     width: 100%;
-    ;
+    height: 300px;
+    /* background-color: #FDC201; */
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
 
+    .content-product-item {
+      width: 30%;
+      /* border: 1px solid black; */
+      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+      border-radius: 5px;
+      height: 300px;
+      background-color: #ffff;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+      align-items: center;
+      justify-content: center;
+
+      h3 {
+        text-align: center;
+      }
+      p {
+        text-align: center;
+      }
+
+      button {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background-color: #fdc201;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: 100;
+        font-size: 20px;
+        color: #ffff;
+        &:hover {
+          filter: brightness(0.8);
+        }
+      }
+    }
   }
-  `;
+`;
 
 // Language: typescript

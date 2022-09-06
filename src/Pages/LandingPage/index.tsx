@@ -43,7 +43,8 @@ export default function LandingPage(){
               <div className="content-item-text">
                 <h3>Comprove os seus conhecimentos</h3>
                 <p>
-                  Ser avaliado com base nas microtarefas, facilitando ao recrutador eliminando perdas e otimizando processo.
+                  Ser avaliado com base nas microtarefas, facilitando ao
+                  recrutador eliminando perdas e otimizando processo.
                 </p>
               </div>
             </div>
@@ -61,23 +62,49 @@ export default function LandingPage(){
             </div>
           </div>
         </MainContent>
-      <ProductContent>
-
-        <div className="title-product">
-          <hr />
-          <h1>Processo seletivo unico </h1>
-          <hr />
-
-        </div>
-        <h2>Chega de ficar em último lugar, seu lugar é aqui com <p>Feneco Talents</p></h2>
-        <div className="content-product">
-          <div className="content-item">
-            
+        <ProductContent>
+          <div className="title-product">
+            <hr />
+            <h1>Processo seletivo unico </h1>
+            <hr />
           </div>
-        </div>
-      </ProductContent>
-
-
+          <h2>
+            Chega de ficar em último lugar, seu lugar é aqui com{" "}
+            <p>Feneco Talents</p>
+          </h2>
+          <div className="content-product">
+            <div className="content-product-item">
+              <div className="content-product-header">
+                <h3>1</h3>
+              </div>
+              <div className="content-description">
+                <h3>Se cadastre</h3>
+                <p>
+                  Cadastre-se e crie seu perfil, para que possamos te conhecer
+                  melhor.
+                </p>
+              </div>
+              <button>
+                ENTRAR COMO CANDIDATO
+              </button>
+            </div>
+            <div className="content-product-item">
+              <div className="content-product-header">
+                <h3>1</h3>
+              </div>
+              <div className="content-description">
+                <h3>Se cadastre</h3>
+                <p>
+                  Cadastre-se e crie seu perfil, para que possamos te conhecer
+                  melhor.
+                </p>
+              </div>
+              <button>
+                ENTRAR COMO CANDIDATO
+              </button>
+            </div>
+          </div>
+        </ProductContent>
       </LandingContent>
     );
 }
