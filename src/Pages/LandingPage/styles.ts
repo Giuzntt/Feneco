@@ -212,9 +212,28 @@ export const ProductContent = styled.div`
       align-items: center;
       justify-content: center;
 
-      h3 {
+      .content-product-header {
+        /* circle */
+        margin: 0 auto;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background-color: #fdc201;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .icon {
+          font-size: 50px;
+          color: #ffff;
+        }
+      }
+      }
+
+       h3 {
         text-align: center;
       }
+      }
+     
       p {
         text-align: center;
       }
@@ -233,8 +252,7 @@ export const ProductContent = styled.div`
           filter: brightness(0.8);
         }
       }
-    }
-  }
+    
 `;
 
 // Language: typescript

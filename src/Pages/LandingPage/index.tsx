@@ -1,7 +1,7 @@
 import { BannerHeader, LandingContent, MainContent, ProductContent } from "./styles";
 import Logo from "../../Assets/images/slogan.jpg";
 import { Link } from "react-router-dom";
-import { FaCheck, FaRegChartBar} from "react-icons/fa";
+import { FaCheck, FaCompass, FaRegChartBar} from "react-icons/fa";
 
 
 export default function LandingPage(){
@@ -27,7 +27,7 @@ export default function LandingPage(){
               </Link>
             </p>
           </div>
-          src/Pages/LandingPage/styles.ts
+         
         </BannerHeader>
         <MainContent>
           <div className="title-main">
@@ -75,7 +75,7 @@ export default function LandingPage(){
           <div className="content-product">
             <div className="content-product-item">
               <div className="content-product-header">
-                <h3>1</h3>
+                    <FaCompass className="icon"/>
               </div>
               <div className="content-description">
                 <h3>Se cadastre</h3>
@@ -90,17 +90,18 @@ export default function LandingPage(){
             </div>
             <div className="content-product-item">
               <div className="content-product-header">
-                <h3>1</h3>
+                    <FaCompass className="icon"/>
               </div>
               <div className="content-description">
-                <h3>Se cadastre</h3>
-                <p>
-                  Cadastre-se e crie seu perfil, para que possamos te conhecer
-                  melhor.
-                </p>
+                <h3>Empresa</h3>
+                <ul>
+                  <li>Encontre aquele candidato que você tanto queria, Recruiter.</li>
+                  <li>Crie Micro-tarefas para ver a experiencia dos candidatos.</li>
+                  
+                </ul>
               </div>
               <button>
-                ENTRAR COMO CANDIDATO
+                ENTRAR COMO EMPRESA
               </button>
             </div>
           </div>
