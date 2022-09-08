@@ -232,12 +232,21 @@ export const ProductContent = styled.div`
        h3 {
         text-align: center;
       }
+
+
+
       }
      
-      p {
-        text-align: center;
-      }
+      ul{
+        list-style: none;
+        margin-bottom: 5px;
+        li{
+          font-size: 15px;
+          text-align: center;
 
+        }
+
+    }
       button {
         width: 100%;
         height: 100%;

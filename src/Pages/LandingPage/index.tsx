@@ -1,7 +1,7 @@
 import { BannerHeader, LandingContent, MainContent, ProductContent } from "./styles";
 import Logo from "../../Assets/images/slogan.jpg";
 import { Link } from "react-router-dom";
-import { FaCheck, FaCompass, FaRegChartBar} from "react-icons/fa";
+import { FaCheck, FaCompass, FaRegBuilding, FaRegChartBar, FaUserCircle, FaWarehouse} from "react-icons/fa";
 
 
 export default function LandingPage(){
@@ -73,16 +73,18 @@ export default function LandingPage(){
             <p>Feneco Talents</p>
           </h2>
           <div className="content-product">
+         
             <div className="content-product-item">
               <div className="content-product-header">
-                    <FaCompass className="icon"/>
+                    <FaUserCircle className="icon"/>
               </div>
               <div className="content-description">
-                <h3>Se cadastre</h3>
-                <p>
-                  Cadastre-se e crie seu perfil, para que possamos te conhecer
-                  melhor.
-                </p>
+                <h3>Candidato</h3>
+                <ul>
+                  <li>Comprove o seu conhecimento com base em microtarefas.</li>
+                  <li>Personalize seu perfil, mostrando sua experiencia ao recrutador</li>
+                  
+                </ul>
               </div>
               <button>
                 ENTRAR COMO CANDIDATO
@@ -90,7 +92,7 @@ export default function LandingPage(){
             </div>
             <div className="content-product-item">
               <div className="content-product-header">
-                    <FaCompass className="icon"/>
+                    <FaRegBuilding className="icon"/>
               </div>
               <div className="content-description">
                 <h3>Empresa</h3>
