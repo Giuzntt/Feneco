@@ -1,17 +1,18 @@
 import styled from "styled-components";
 
 export const LandingContent = styled.div`
-    max-width: 1440px;
-    padding: 0 160px;
-    margin: 0 auto;
+  max-width: 1440px;
+  padding: 0 160px;
+  min-height: calc(100vh - 50px);
+  margin: 0 auto;
 
-    @media screen and (max-width: 768px) {
-        padding: 0 20px;
-    }
-    @media screen and (max-width: 768px) {
-        padding: 20px;
-    }
-`
+  @media screen and (max-width: 768px) {
+    padding: 0 20px;
+  }
+  @media screen and (max-width: 768px) {
+    padding: 20px;
+  }
+`;
 
 export const BannerHeader = styled.div`
     display: flex;
@@ -78,8 +79,9 @@ export const BannerHeader = styled.div`
                 filter: brightness(0.8);
             }
         }
-        
 
+        
+        
     }
     
 `
