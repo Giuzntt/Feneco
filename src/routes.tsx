@@ -1,7 +1,8 @@
 import { Routes, Route } from "react-router-dom";
 import LandingPage from "./Pages/LandingPage";
-import LoginPage from "./Pages";
+
 import { Layout } from "./Layouts";
+import LoginPage from "./Pages/LoginPage";
 
 
 
