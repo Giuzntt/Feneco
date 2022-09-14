@@ -5,6 +5,7 @@ import { BoxLogin } from './styles';
 import Logo from '../../Assets/logo-login.svg';
 import { CustomTextField } from '../../components/TextField';
 import { FaGithub, FaGoogle, FaLinkedin } from 'react-icons/fa';
+import { CustomButton } from '../../components/Button';
 
 
 
@@ -31,13 +32,19 @@ export default function LoginPage() {
           <CustomTextField placeholder="Digite seu email" type="email" />
           <CustomTextField placeholder="Digite a sua senha" type="password" />
 
-          <Button variant="contained" color="warning" fullWidth>
-            Entrar
-          </Button>
+          <CustomButton
+            variant="contained"
+          >
+            <Typography variant="button" sx={{color:'#FFFF'}}>Entrar</Typography>
+          </CustomButton>
+
           <Typography
-            variant="h5"
+            variant="h2"
             color="initial"
-            sx={{ textAlign: "center", color: "#FFFF" }}
+            sx={{ textAlign: "center", color: "#FFFF", fontSize: "1.5rem",
+            fontWeight: "700" }}
+
+
           >
             Or
           </Typography>
