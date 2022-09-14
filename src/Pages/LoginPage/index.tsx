@@ -29,13 +29,14 @@ export default function LoginPage() {
         <BoxLogin>
           <img src={Logo} alt="logo" />
 
-          <CustomTextField placeholder="Digite seu email" type="email" />
+          <CustomTextField 
+           placeholder="Digite seu email" type="email" />
           <CustomTextField placeholder="Digite a sua senha" type="password" />
 
           <CustomButton
             variant="contained"
           >
-            <Typography variant="button" sx={{color:'#FFFF'}}>Entrar</Typography>
+            Entrar
           </CustomButton>
 
           <Typography
