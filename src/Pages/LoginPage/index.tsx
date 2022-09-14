@@ -1,33 +1,66 @@
-import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 // import { BoxLogin, LoginContainer } from "./styles";
-import { Grid } from '@mui/material';
+import { Box, Fab, Grid, Typography } from '@mui/material';
 import { BoxLogin } from './styles';
+import Logo from '../../Assets/logo-login.svg';
+import { CustomTextField } from '../../components/TextField';
+import { FaGithub, FaGoogle, FaLinkedin } from 'react-icons/fa';
 
 
 
 export default function LoginPage() {
-    return (
-      // CENTERED CONTAINER
+  return (
+    // CENTERED CONTAINER
 
-      <Grid
-        container
-        spacing={0}
-        direction="column"
-        alignItems="center"
-        justifyContent="center"
-        style={{ minHeight: "100vh" }}
-      >
-        <Grid item xs={3}>
+    <Grid
+      container
+      spacing={0}
+      direction="column"
+      alignItems="center"
+      justifyContent="center"
+      sx={{
+        minHeight: "100vh",
+        background: "linear-gradient(180deg, #FCC400 10%, #FCC400 60%);",
+        // background opacity  0.5
+      }}
+    >
+      <Grid item xs={5}>
         <BoxLogin>
+          <img src={Logo} alt="logo" />
 
-          <TextField id="outlined-basic" label="Login" variant="outlined" />
-          <TextField id="outlined-basic" label="Senha" variant="outlined" />
-          <Button variant="outlined" color="primary" fullWidth>
+          <CustomTextField placeholder="Digite seu email" type="email" />
+          <CustomTextField placeholder="Digite a sua senha" type="password" />
+
+          <Button variant="contained" color="warning" fullWidth>
             Entrar
           </Button>
+          <Typography
+            variant="h5"
+            color="initial"
+            sx={{ textAlign: "center", color: "#FFFF" }}
+          >
+            Or
+          </Typography>
+
+          <Box
+            sx={{
+              display: "Flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <Fab color="info" aria-label="add">
+              <FaLinkedin className="icon" />
+            </Fab>
+            <Fab color="default" aria-label="add">
+              <FaGithub className="icon" />
+            </Fab>
+            <Fab color="default" aria-label="add">
+              <FaGoogle className="icon" />
+            </Fab>
+          </Box>
         </BoxLogin>
-        </Grid>
       </Grid>
-    );
+    </Grid>
+  );
     }
