@@ -6,6 +6,7 @@ interface ITextFieldProps {
   disabled?: boolean;
   type?: string;
   value?: string;
+  onChange?: (e: any) => void;
 }
 
 const theme = createTheme({
@@ -20,6 +21,8 @@ const theme = createTheme({
 export const CustomTextField: React.FC<ITextFieldProps> = ({
   placeholder,
   type,
+  onChange,
+  value
 }) => {
   return (
     <ThemeProvider theme={theme}>
@@ -27,8 +30,10 @@ export const CustomTextField: React.FC<ITextFieldProps> = ({
         className="input"
         id="outlined-basic"
         fullWidth
+        value={value}
+        onChange={onChange}
         type={type}
-        placeholder={placeholder}
+        label={placeholder}
         variant="outlined"
         margin="normal"
       />

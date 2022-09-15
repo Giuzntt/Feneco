@@ -3,6 +3,7 @@ import LandingPage from "./Pages/LandingPage";
 
 import { Layout } from "./Layouts";
 import LoginPage from "./Pages/LoginPage";
+import RegisterPage from "./Pages/RegisterPage";
 
 
 
@@ -12,10 +13,11 @@ const Router = (): JSX.Element => {
       <Route  path="/" element={<Layout />}>
         <Route path="/" element={<LandingPage />} />
       </Route>
-      <Route path="/Login" element={<LoginPage />}>
+      <Route path="/Login" element={<LoginPage />}/>
+      <Route path="/Register" element={<RegisterPage />}/>
       
         
-      </Route>
+     
     </Routes>
   );
 };

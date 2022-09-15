@@ -5,11 +5,17 @@ import { TextField } from "@mui/material";
 
 
 export const TextFieldCustom = styled(TextField)`
+font-family: 'Open Sans', sans-serif;
  .MuiInputBase-root{
         background-color: #fff;
-        height: 60px;    
+        min-height: 60px;    
+        
 
  }  
+ & label.Mui-focused{
+       overflow: hidden;
+}
+
 
 
 `;
