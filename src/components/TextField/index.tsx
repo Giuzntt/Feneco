@@ -5,6 +5,7 @@ interface ITextFieldProps {
   placeholder: string;
   label?: string;
   disable: boolean;
+  helperText?: string;
   type?: string;
   value?: string;
   onChange?: (e: any) => void;
@@ -24,7 +25,8 @@ export const CustomTextField: React.FC<ITextFieldProps> = ({
   type,
   onChange,
   value, 
-  disable
+  disable,
+  helperText
 }) => {
   return (
     <ThemeProvider theme={theme}>
@@ -36,6 +38,7 @@ export const CustomTextField: React.FC<ITextFieldProps> = ({
           className="input"
           id="outlined-basic"
           fullWidth
+          helperText={helperText}
           value={value}
           onChange={onChange}
           type={type}
@@ -58,6 +61,7 @@ export const CustomTextField: React.FC<ITextFieldProps> = ({
         placeholder={placeholder}
         variant="outlined"
         margin="normal"
+        helperText={"Preencimento Automático*"}
         disabled
         />
         </>

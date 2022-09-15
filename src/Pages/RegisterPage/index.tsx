@@ -55,27 +55,32 @@ export default function RegisterPage() {
                 <CustomTextField
                     placeholder="Nome Completo"
                     type="text"
+                    helperText=" "
                     disable={true}
                 />
               
                 <CustomTextField
                     placeholder="E-mail"
                     type="text"
+                    helperText=" "
                     disable={true}
                 />
 
                 <CustomTextField
                     placeholder="Senha"
                     type="password"
+                    helperText=" "
                     disable={true}
                 />
                 <CustomTextField
                     placeholder="Data de Nascimento"
                     type="text"
+                    helperText=" "
                     disable={true}
                 />
                 <CustomTextField
                     placeholder="CPF"
+                    helperText=" "
                     type="text"
                     disable={true}
                 />
@@ -90,10 +95,12 @@ export default function RegisterPage() {
                         setCepData(e.target.value);
                     }}
                     value={cepData}
+                    helperText="Insira seu CEP"
                     disable={true}
                 />
                 <CustomTextField
                     placeholder="Número"
+                    helperText=" "
                     type="text"
                     disable={true}
                 />
