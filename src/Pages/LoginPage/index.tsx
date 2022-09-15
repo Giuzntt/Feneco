@@ -28,8 +28,8 @@ export default function LoginPage() {
           <img src={Logo} alt="logo" />
 
           <CustomTextField 
-           placeholder="Digite seu email" type="email" />
-          <CustomTextField placeholder="Digite a sua senha" type="password" />
+            placeholder="Digite seu email" type="email" disable={true} />
+          <CustomTextField placeholder="Digite a sua senha" type="password" disable={true} />
 
           <CustomButton
             variant="contained"

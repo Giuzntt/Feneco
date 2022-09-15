@@ -3,7 +3,8 @@ import { TextFieldCustom } from "./styles";
 
 interface ITextFieldProps {
   placeholder: string;
-  disabled?: boolean;
+  label?: string;
+  disable: boolean;
   type?: string;
   value?: string;
   onChange?: (e: any) => void;
@@ -22,23 +23,48 @@ export const CustomTextField: React.FC<ITextFieldProps> = ({
   placeholder,
   type,
   onChange,
-  value
+  value, 
+  disable
 }) => {
   return (
     <ThemeProvider theme={theme}>
-      <TextFieldCustom
+      {
+        disable == true ?
+          (
+          <>
+          <TextFieldCustom
+          className="input"
+          id="outlined-basic"
+          fullWidth
+          value={value}
+          onChange={onChange}
+          type={type}
+                label={placeholder}
+          
+          variant="outlined"
+          margin="normal"
+        />
+        </>
+      ) : (
+        <>
+        <TextFieldCustom
         className="input"
         id="outlined-basic"
         fullWidth
         value={value}
         onChange={onChange}
         type={type}
-        label={placeholder}
+        // label={placeholder}
+        placeholder={placeholder}
         variant="outlined"
         margin="normal"
-      />
-    </ThemeProvider>
-  );
+        disabled
+        />
+        </>
+        )
+        }
+        </ThemeProvider>
+  )
 };
 
 // Language: typescript

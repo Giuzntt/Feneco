@@ -13,6 +13,7 @@ font-family: 'Open Sans', sans-serif;
 
  }  
  & label.Mui-focused{
+       margin-top: 5px;
        overflow: hidden;
 }
 

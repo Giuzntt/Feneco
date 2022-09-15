@@ -1,9 +1,11 @@
-import { Grid } from "@mui/material";
+import { Fab, Grid } from "@mui/material";
 // import { log } from "console";
 import { useEffect, useState } from "react";
 import api_viacep from "../../api/api";
 import { CustomTextField } from "../../components/TextField";
-import { BoxRegister } from "./styles";
+import { BoxFab, BoxRegister, GridItem } from "./styles";
+import Logo from "../../Assets/logo-login.svg"
+import { FaArrowRight } from "react-icons/fa";
 
 interface ICepState {
     logradouro: string;
@@ -17,21 +19,20 @@ interface ICepState {
 
 export default function RegisterPage() {
 
-    const [cepData, setCepData] = useState<string>('02316050');
-    const [cep, setCep] = useState<ICepState[]>([]);
+    const [cepData, setCepData] = useState<string>('');
+    const [cep, setCep] = useState<ICepState>({} as ICepState);
 
 
     
     useEffect(() => {
         api_viacep.get(`/${cepData}/json/`).then((response) => {
-            setCep(JSON.parse(JSON.stringify(response.data)));
+            setCep(response.data);
         }).catch((error) => {
             console.log(error);
         });
 
       
     }, [cepData]);
-
 
     return (
         // CENTERED CONTAINER
@@ -44,33 +45,39 @@ export default function RegisterPage() {
             sx={{
                 minHeight: "100vh",
                 background: "linear-gradient(180deg, #FCC400 10%, #FCC400 60%);",
-                // background opacity  0.5
             }}
         
-        >
+        >     
+            <GridItem item xs={2}>
+                <img src={Logo} alt="" />
+            </GridItem>
             <BoxRegister>
-
                 <CustomTextField
                     placeholder="Nome Completo"
                     type="text"
+                    disable={true}
                 />
               
                 <CustomTextField
                     placeholder="E-mail"
                     type="text"
+                    disable={true}
                 />
 
                 <CustomTextField
                     placeholder="Senha"
                     type="password"
+                    disable={true}
                 />
                 <CustomTextField
                     placeholder="Data de Nascimento"
                     type="text"
+                    disable={true}
                 />
                 <CustomTextField
                     placeholder="CPF"
                     type="text"
+                    disable={true}
                 />
                 
                 
@@ -83,44 +90,41 @@ export default function RegisterPage() {
                         setCepData(e.target.value);
                     }}
                     value={cepData}
+                    disable={true}
                 />
-                {
-                    cep.map((item) => {
-                        return (
-                            <>
-                                <CustomTextField
-                                    placeholder="Número"
-                                    type="text"
-                                    value={item.ddd}
-                                />
-                                <CustomTextField
-                                    placeholder="Rua"
-                                    type="text"
-                                    disabled
-                                    value={item.logradouro}
-                                />
-                                <CustomTextField
-                                    placeholder="Cidade"
-                                    type="text"
-                                    value={item.localidade}
-                                    disabled
-                                />
-                                <CustomTextField
-                                    placeholder="Estado"
-                                    type="text"
-                                    value={item.uf}
-                                    disabled
-                                />
-                            </>
-                        )
-                    }
-
-                    )
-                }
-          
+                <CustomTextField
+                    placeholder="Número"
+                    type="text"
+                    disable={true}
+                />
+                <CustomTextField
+                    placeholder="Rua"
+                    type="text"
+                    disable={false}
+                    
+                    value={cep.logradouro}
+                />
+                <CustomTextField
+                    placeholder="Cidade"
+                    type="text"
+                    value={cep.localidade}
+                    disable={false}
+                />
+                <CustomTextField
+                    placeholder="Estado"
+                    type="text"
+                    value={cep.uf}
+                    disable={false}
+                />
                 
             </BoxRegister>
         
+            <BoxFab color="default" aria-label="add">
+                <Fab color="default" aria-label="add">
+
+                    <FaArrowRight className="icon"/>
+                </Fab>
+            </BoxFab>
 
         </Grid>
             )
