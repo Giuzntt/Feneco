@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { TextField } from "@mui/material";
+import { OutlinedInput, TextField } from "@mui/material";
 
 
 
@@ -19,4 +19,15 @@ font-family: 'Open Sans', sans-serif;
 
 
 
+`;
+
+export const OutlinedInputStyled = styled(OutlinedInput)`
+  background-color: #FFF;
+  font-size: 1.2rem;
+  font-weight: 600;
+
+
+  &:hover {
+    background-color: #ffffff;
+  }
 `;

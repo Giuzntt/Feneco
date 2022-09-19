@@ -1,5 +1,5 @@
-import { createTheme, ThemeProvider } from "@mui/material";
-import { TextFieldCustom } from "./styles";
+import { createTheme, FormControl, FormHelperText, ThemeProvider } from "@mui/material";
+import { OutlinedInputStyled, TextFieldCustom } from "./styles";
 
 interface ITextFieldProps {
   placeholder: string;
@@ -7,7 +7,9 @@ interface ITextFieldProps {
   disable: boolean;
   helperText?: string;
   type?: string;
+  multiline?: boolean;
   value?: string;
+  endArdoment?: JSX.Element;
   onChange?: (e: any) => void;
 }
 
@@ -26,12 +28,13 @@ export const CustomTextField: React.FC<ITextFieldProps> = ({
   onChange,
   value, 
   disable,
+  multiline,
   helperText
 }) => {
   return (
     <ThemeProvider theme={theme}>
       {
-        disable == true ?
+        disable === true ?
           (
           <>
           <TextFieldCustom
@@ -40,6 +43,7 @@ export const CustomTextField: React.FC<ITextFieldProps> = ({
           fullWidth
           helperText={helperText}
           value={value}
+          multiline={multiline=== true ? multiline : false}
           onChange={onChange}
           type={type}
                 label={placeholder}
@@ -61,7 +65,7 @@ export const CustomTextField: React.FC<ITextFieldProps> = ({
         placeholder={placeholder}
         variant="outlined"
         margin="normal"
-        helperText={"Preencimento Automático*"}
+        helperText={"Preenchimento Automático*"}
         disabled
         />
         </>
@@ -70,5 +74,39 @@ export const CustomTextField: React.FC<ITextFieldProps> = ({
         </ThemeProvider>
   )
 };
+
+export const CustomOutlinedInput:React.FC<ITextFieldProps> = ({
+  placeholder,
+  type,
+  onChange,
+  value,
+  endArdoment,
+}) => {
+
+    return (
+      <ThemeProvider theme={theme}>
+        <FormControl variant="outlined">
+          <OutlinedInputStyled
+            className="input"
+            id="outlined-adornment-weight"
+            fullWidth
+            value={value}
+            onChange={onChange}
+            type={type}
+            placeholder={placeholder}
+            inputProps={{
+              "aria-label": "weight",
+            }}
+            aria-describedby="outlined-weight-helper-text"
+            endAdornment={endArdoment}
+          />
+          <FormHelperText id="outlined-weight-helper-text">
+            Preencha seu CEP
+          </FormHelperText>
+        </FormControl>
+      </ThemeProvider>
+    );
+};
+
 
 // Language: typescript

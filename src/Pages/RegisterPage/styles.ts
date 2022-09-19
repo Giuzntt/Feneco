@@ -26,10 +26,12 @@ export const GridItem = styled(Grid)`
 
 `
 
-export const BoxFab = styled(Box)`
-    margin: 20px auto;
-    .MuiFab-root{
-        background-color: #FFF;
-        color: #FCC400;
-    }
+export const BoxRegisterTwo = styled(Box)`
+    display: grid;
+    width: 100%;
+    grid-row-gap: 20px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+
 `

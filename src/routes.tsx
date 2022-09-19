@@ -7,6 +7,7 @@ import RegisterPage from "./Pages/RegisterPage";
 
 
 
+
 const Router = (): JSX.Element => {
   return (
     <Routes>
@@ -15,6 +16,8 @@ const Router = (): JSX.Element => {
       </Route>
       <Route path="/Login" element={<LoginPage />}/>
       <Route path="/Register" element={<RegisterPage />}/>
+       
+    
       
         
      

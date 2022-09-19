@@ -1,4 +1,5 @@
 import { createTheme } from "@mui/material";
+import { Link } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { ButtonStyled } from "./styles";
 
@@ -6,11 +7,11 @@ import { ButtonStyled } from "./styles";
 // pls button component react router use link
 interface IButtonProps {
     variant?: "text" | "outlined" | "contained";
-    color?: "default" | "inherit" | "primary" | "secondary";
     size?: "small" | "medium" | "large";
-    fullWidth?: boolean;
+    // fullWidth?: boolean;
     startIcon?: React.ReactNode;
     children: React.ReactNode;
+    to: string;
 }
 
 
@@ -26,22 +27,26 @@ const theme = createTheme({
 
 
 
-export  function  CustomButton ({variant, color, size, fullWidth, startIcon, children}: IButtonProps) {
+export  function  CustomButton ({variant, size, startIcon, children, to}: IButtonProps) {
     return (
     <ThemeProvider theme={theme}>
 
-        <ButtonStyled
-            
-            variant={variant}
-            size={size}
-            fullWidth={fullWidth}
-            startIcon={startIcon}
+        <Link to={to} style={{ textDecoration: 'none', 
+        color: "inherit", width: "100%" }}>
+            <ButtonStyled
+                variant={variant}
+                size={size}
+                fullWidth
+                startIcon={startIcon}
             >
-            {children}
-        </ButtonStyled>
+                {children}
+            </ButtonStyled>
+        </Link>
     </ThemeProvider>
     )
 }
+
+
 
 
 // Language: typescript
