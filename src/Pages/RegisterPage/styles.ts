@@ -7,8 +7,8 @@ import { Box, Grid } from "@mui/material";
 export const BoxRegister = styled(Box)`
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-gap: 10px;
+    grid-template-rows: 1fr;
+    grid-gap:  1rem 20px; 
     flex-direction: column;
     align-items: center;
     justify-content: center;

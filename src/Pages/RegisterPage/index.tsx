@@ -24,6 +24,26 @@ const steps = [
   "Confirme seus dados",
 ];
 
+let styleStepper = {
+  '& .MuiStepLabel-root .Mui-completed': {
+    color: '#F79200', // circle color (COMPLETED)
+  },
+  '& .MuiStepLabel-label.Mui-completed.MuiStepLabel-alternativeLabel':
+  {
+    color: '#FFFFF', // Just text label (COMPLETED)
+  },
+  '& .MuiStepLabel-root .Mui-active': {
+    color: '#F79200', // circle color (ACTIVE)
+  },
+  '& .MuiStepLabel-label.Mui-active.MuiStepLabel-alternativeLabel':
+  {
+    color: '#FFFFF', // Just text label (ACTIVE)
+  },
+  '& .MuiStepLabel-root .Mui-active .MuiStepIcon-text': {
+    fill: '#FFFF', // circle's number (ACTIVE)
+  },
+}
+
 
 export default function RegisterPage() {
   const [cepData, setCepData] = useState<string>("");
@@ -272,7 +292,7 @@ export default function RegisterPage() {
               stepProps.completed = false;
             }
             return (
-              <Step key={label} {...stepProps}>
+              <Step key={label} {...stepProps} sx={styleStepper}>
                 <StepLabel {...labelProps}>{label}</StepLabel>
               </Step>
             );
