@@ -17,6 +17,22 @@ interface ICepState {
     ddd: string;
 }
 
+interface IFieldsProps {
+    name: string;
+    email: string;
+    password: string;
+    confirmPassword: string;
+    cep: string;
+    street: string;
+    number: string;
+    neighborhood: string;
+    city: string;
+    state: string;
+    phone: string;
+    cellphone: string;
+    cpf: string;
+}
+
 
 const steps = [
   "Preencha informações básicas",	
@@ -47,6 +63,8 @@ let styleStepper = {
 
 export default function RegisterPage() {
   const [cepData, setCepData] = useState<string>("");
+  const [fields, setFields] = useState<IFieldsProps>({} as IFieldsProps);
+
   const [cep, setCep] = useState<ICepState>({} as ICepState);
   const [activeStep, setActiveStep] = useState(0);
   const [skipped, setSkipped] = useState(()=>new  Set<number>());
@@ -88,10 +106,16 @@ export default function RegisterPage() {
 
 
   
+
+
   const  RegisterStepOne = () => {
 
+  
+
+  
+     
     useEffect(() => {
-      console.log(cepData);
+      
     }, []);
 
     return (
@@ -99,39 +123,47 @@ export default function RegisterPage() {
         {/* <FormControl > */}
 
         <CustomTextField
+          key={'name'}
           placeholder="Nome Completo"
           type="text"
+          value={fields.name || ""}
+          onChange={(e) => setFields({...fields, name: e.target.value})}
           helperText=" "
-          disable={true}
+          
         />
 
         <CustomTextField
+          key={'email'}
           placeholder="E-mail"
           type="text"
           helperText=" "
-          disable={true}
+          
         />
 
         <CustomTextField
+          key={'password'}
           placeholder="Senha"
           type="password"
           helperText=" "
-          disable={true}
+          
         />
         <CustomTextField
+          key={'nascimento'}
           placeholder="Data de Nascimento"
           type="text"
           helperText=" "
-          disable={true}
+          
         />
         <CustomTextField
+          key={'cpf'}
           placeholder="CPF"
           helperText=" "
           type="text"
-          disable={true}
+          
         />
 
         <CustomOutlinedInput
+          key={'cpf'}
           placeholder="CEP"
           type="text"
           value={cepData || ""}
@@ -159,25 +191,25 @@ export default function RegisterPage() {
           placeholder="Número"
           helperText=" "
           type="text"
-          disable={true}
+          
         />
         <CustomTextField
           placeholder="Rua"
           type="text"
-          disable={false}
+          disabled
           value={cep.logradouro}
         />
         <CustomTextField
           placeholder="Cidade"
           type="text"
           value={cep.localidade}
-          disable={false}
+          disabled
         />
         <CustomTextField
           placeholder="Estado"
           type="text"
           value={cep.uf}
-          disable={false}
+          disabled
         />
         {/* </FormControl> */}
       </BoxRegister>
@@ -229,28 +261,28 @@ export default function RegisterPage() {
               placeholder="O que ama fazer?"
               type="text"
               helperText="Pressione Enter para pular linha"
-              disable={true}
+              
               multiline={true}
             />
             <CustomTextField
               placeholder="O que possou fazer bem?"
               type="text"
               helperText="Pressione Enter para pular linha"
-              disable={true}
+              
               multiline={true}
             />
             <CustomTextField
               placeholder="O que possou fazer bem?"
               type="text"
               helperText="Pressione Enter para pular linha"
-              disable={true}
+              
               multiline={true}
             />
             <CustomTextField
               placeholder="O que possou fazer bem?"
               type="text"
               helperText="Pressione Enter para pular linha"
-              disable={true}
+              
               multiline={true}
             />
           </BoxRegister>

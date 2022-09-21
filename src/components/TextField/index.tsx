@@ -4,7 +4,7 @@ import { OutlinedInputStyled, TextFieldCustom } from "./styles";
 interface ITextFieldProps {
   placeholder: string;
   label?: string;
-  disable?: boolean;
+  disabled?: boolean;
   helperText?: string;
   type?: string;
   multiline?: boolean;
@@ -28,16 +28,14 @@ export const CustomTextField: React.FC<ITextFieldProps> = ({
   type,
   onChange,
   value, 
-  disable,
+  disabled,
   multiline,
   helperText
 }) => {
   return (
     <ThemeProvider theme={theme}>
-      {
-        disable === true ?
-          (
-          <>
+     
+         
           <TextFieldCustom
           className="input"
           id="outlined-basic"
@@ -50,29 +48,11 @@ export const CustomTextField: React.FC<ITextFieldProps> = ({
           label={placeholder}
           variant="outlined"
           margin="normal"
+          disabled ={disabled === true ? disabled : false} 
         />
-        </>
-      ) : (
-        <>
-        <TextFieldCustom
-        className="input"
-        id="outlined-basic"
-        fullWidth
-        value={value}
-        onChange={onChange}
-        type={type}
-        // label={placeholder}
-        placeholder={placeholder}
-        variant="outlined"
-        margin="normal"
-        helperText={"Preenchimento Automático*"}
-        disabled
-        />
-        </>
-        )
-        }
-        </ThemeProvider>
-  )
+        
+    </ThemeProvider>
+  );
 };
 
 export const CustomOutlinedInput:React.FC<ITextFieldProps> = ({

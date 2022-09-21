@@ -31,12 +31,12 @@ export default function LoginPage() {
           <CustomTextField
             placeholder="Digite seu email"
             type="email"
-            disable={true}
+            
           />
           <CustomTextField
             placeholder="Digite a sua senha"
             type="password"
-            disable={true}
+            
           />
 
           <Typography variant="h5" color="inherit" sx={{
