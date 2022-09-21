@@ -4,13 +4,14 @@ import { OutlinedInputStyled, TextFieldCustom } from "./styles";
 interface ITextFieldProps {
   placeholder: string;
   label?: string;
-  disable: boolean;
+  disable?: boolean;
   helperText?: string;
   type?: string;
   multiline?: boolean;
   value?: string;
   endArdoment?: JSX.Element;
   onChange?: (e: any) => void;
+  onBlur?: (e: any) => void;
 }
 
 const theme = createTheme({
@@ -46,8 +47,7 @@ export const CustomTextField: React.FC<ITextFieldProps> = ({
           multiline={multiline=== true ? multiline : false}
           onChange={onChange}
           type={type}
-                label={placeholder}
-          
+          label={placeholder}
           variant="outlined"
           margin="normal"
         />
@@ -79,6 +79,7 @@ export const CustomOutlinedInput:React.FC<ITextFieldProps> = ({
   placeholder,
   type,
   onChange,
+  onBlur,
   value,
   endArdoment,
 }) => {
@@ -92,6 +93,8 @@ export const CustomOutlinedInput:React.FC<ITextFieldProps> = ({
             fullWidth
             value={value}
             onChange={onChange}
+            onBlur={onBlur}
+            autoFocus
             type={type}
             placeholder={placeholder}
             inputProps={{

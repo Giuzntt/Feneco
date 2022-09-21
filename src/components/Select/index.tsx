@@ -4,6 +4,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
+import { createTheme, ThemeProvider } from "@mui/material";
 
 
 
@@ -16,10 +17,20 @@ interface ISelectProps {
     value: string;
     onChange: (event: SelectChangeEvent) => void;
 }
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#FCC400",
+    },
+  },
+  
+});
 
 export const SelectField: React.FC<ISelectProps> = ({ label, options, value, onChange }) => {
     return (
       <Box sx={{ minWidth: 120 }}>
+        <ThemeProvider theme={theme}>
+
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">{label}</InputLabel>
           <Select
@@ -28,8 +39,11 @@ export const SelectField: React.FC<ISelectProps> = ({ label, options, value, onC
             value={value}
             label={label}
             onChange={onChange}
-            sx={{ width: "100%" }}
+            sx={{ width: "400px", height:'60px', backgroundColor: "white" ,
             
+                
+          }}
+          
           >
             {options.map((option) => (
               <MenuItem key={option.value} value={option.value} sx={{width:'100%'}}>
@@ -38,6 +52,7 @@ export const SelectField: React.FC<ISelectProps> = ({ label, options, value, onC
             ))}
           </Select>
         </FormControl>
+                </ThemeProvider>
       </Box>
     );
                     }

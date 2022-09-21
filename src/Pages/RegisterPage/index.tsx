@@ -1,6 +1,6 @@
 import { Box, Button,  Grid, IconButton, InputAdornment, Step, StepLabel, Stepper, Typography } from "@mui/material";
 // import { log } from "console";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import api_viacep from "../../api/api";
 import { CustomOutlinedInput, CustomTextField } from "../../components/TextField";
 import {  BoxRegister, BoxRegisterTwo, GridItem } from "./styles";
@@ -49,7 +49,7 @@ export default function RegisterPage() {
   const [cepData, setCepData] = useState<string>("");
   const [cep, setCep] = useState<ICepState>({} as ICepState);
   const [activeStep, setActiveStep] = useState(0);
-  const [skipped, setSkipped] = useState(new Set<number>());
+  const [skipped, setSkipped] = useState(()=>new  Set<number>());
   const [changeSelect, setChangeSelect] = useState<string>("");
   const [changeSelectTwo, setChangeSelectTwo] = useState<string>("");
     const [changeSelectThree, setChangeSelectThree] = useState<string>("");
@@ -78,6 +78,7 @@ export default function RegisterPage() {
 
 
   const handleCep = async (e: any) => {
+    e.preventDefault();
     setCepData(e.target.value);
     if (cepData.length === 8) {
       const response = await api_viacep.get(`${cepData}/json/`);
@@ -85,12 +86,14 @@ export default function RegisterPage() {
     }
   };
 
-  const handleReset = () => {
-    setActiveStep(0);
-  };
 
   
   const  RegisterStepOne = () => {
+
+    useEffect(() => {
+      console.log(cepData);
+    }, []);
+
     return (
       <BoxRegister>
         {/* <FormControl > */}
@@ -132,8 +135,14 @@ export default function RegisterPage() {
           placeholder="CEP"
           type="text"
           value={cepData || ""}
-          onChange={(e) => handleCep(e)}
-          disable={true}
+          onChange={(e)=>{
+            setCepData(e.target.value);
+            
+          }
+          }
+          onBlur={(e) => handleCep(e)}
+          
+          
           endArdoment={
             <InputAdornment position="end">
               <IconButton
@@ -281,7 +290,7 @@ export default function RegisterPage() {
       </GridItem>
 
       <Box sx={{ width: "50%" }}>
-        <Stepper activeStep={activeStep} >
+        <Stepper activeStep={activeStep}>
           {steps.map((label, index) => {
             const stepProps: { completed?: boolean } = {};
             const labelProps: {
@@ -300,17 +309,14 @@ export default function RegisterPage() {
         </Stepper>
         {activeStep === steps.length ? (
           <>
-            <Typography sx={{ mt: 2, mb: 1 }}>
-              All steps completed - you&apos;re finished
+            <Typography variant="h5"  sx={{ mt: 2, mb: 1 , textAlign:'center', color:'#FFFF'}}>
+              Você finalizou o cadastro!
             </Typography>
-            <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
-              <Box sx={{ flex: "1 1 auto" }} />
-              <Button onClick={handleReset}>Reset</Button>
-            </Box>
+           
           </>
         ) : (
           <>
-            <Typography sx={{ mt: 2, mb: 1 }}>
+            <Typography variant="h5" sx={{ mt: 2, mb: 1 }}>
               {getStepContent(activeStep)}
             </Typography>
             <Box sx={{ display: "flex", flexDirection: "row", pt: 2 }}>
@@ -328,7 +334,11 @@ export default function RegisterPage() {
               <Button
                 onClick={handleNext}
                 variant="contained"
-                sx={{ color: "white", backgroundColor: "#FCC400", ":hover": { backgroundColor: "#FCC400" } }}
+                sx={{
+                  color: "white",
+                  backgroundColor: "#FCC400",
+                  ":hover": { backgroundColor: "#FCC400" },
+                }}
               >
                 {activeStep === steps.length - 1
                   ? "Finalizar cadastro"
