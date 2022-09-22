@@ -4,13 +4,13 @@ import Header from "../../components/Header/Header"
 
 
 
-const LayoutUser = () =>{
+export const LayoutUser = () =>{
     return (
         <>
-        <Header/>
+            <Header isLogged={true} />
             <Outlet />
-        <Footer />
+            <Footer />
         </>
-
     )
+
 }

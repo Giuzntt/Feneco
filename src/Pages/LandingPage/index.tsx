@@ -109,7 +109,10 @@ export default function LandingPage(){
                     </li>
                   </ul>
                 </div>
+                <Link to="/user/">
+
                 <button>ENTRAR COMO EMPRESA</button>
+                </Link>
               </div>
             </div>
           </ProductContent>
