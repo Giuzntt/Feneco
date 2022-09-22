@@ -2,11 +2,12 @@ import { createTheme, FormControl, FormHelperText, ThemeProvider } from "@mui/ma
 import { OutlinedInputStyled, TextFieldCustom } from "./styles";
 
 interface ITextFieldProps {
-  placeholder: string;
+  placeholder?: string;
   label?: string;
   disabled?: boolean;
   helperText?: string;
   type?: string;
+  InputLabelProps?: any;
   multiline?: boolean;
   value?: string;
   endArdoment?: JSX.Element;
@@ -26,7 +27,9 @@ const theme = createTheme({
 export const CustomTextField: React.FC<ITextFieldProps> = ({
   placeholder,
   type,
+  label,
   onChange,
+  InputLabelProps,
   value, 
   disabled,
   multiline,
@@ -34,23 +37,25 @@ export const CustomTextField: React.FC<ITextFieldProps> = ({
 }) => {
   return (
     <ThemeProvider theme={theme}>
-     
-         
-          <TextFieldCustom
-          className="input"
-          id="outlined-basic"
-          fullWidth
-          helperText={helperText}
-          value={value}
-          multiline={multiline=== true ? multiline : false}
-          onChange={onChange}
-          type={type}
-          label={placeholder}
-          variant="outlined"
-          margin="normal"
-          disabled ={disabled === true ? disabled : false} 
-        />
-        
+      <TextFieldCustom
+        className="input"
+        id="outlined-basic"
+        InputLabelProps={{
+          shrink: true,
+        }}
+        fullWidth
+        helperText={helperText}
+        value={value}
+        multiline={multiline === true ? multiline : false}
+        onChange={onChange}
+        type={type}
+        label={label}
+        placeholder={placeholder}
+        variant="outlined"
+        margin="normal"
+        disabled={disabled === true ? disabled : false}
+        // defaultValue={value=== true ? value : placeholder}
+      />
     </ThemeProvider>
   );
 };

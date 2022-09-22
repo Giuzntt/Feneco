@@ -1,6 +1,6 @@
 import { Box, Button,  Grid, IconButton, InputAdornment, Step, StepLabel, Stepper, Typography } from "@mui/material";
 // import { log } from "console";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import api_viacep from "../../api/api";
 import { CustomOutlinedInput, CustomTextField } from "../../components/TextField";
 import {  BoxRegister, BoxRegisterTwo, GridItem } from "./styles";
@@ -63,7 +63,21 @@ let styleStepper = {
 
 export default function RegisterPage() {
   const [cepData, setCepData] = useState<string>("");
-  const [fields, setFields] = useState<IFieldsProps>({} as IFieldsProps);
+  const [fields, setFields] = useState<IFieldsProps>({
+    name: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+    cep: "",
+    street: "",
+    number: "",
+    neighborhood: "",
+    city: "",
+    state: "",
+    phone: "",
+    cellphone: "",
+    cpf: "",
+  });
 
   const [cep, setCep] = useState<ICepState>({} as ICepState);
   const [activeStep, setActiveStep] = useState(0);
@@ -96,10 +110,15 @@ export default function RegisterPage() {
 
 
   const handleCep = async (e: any) => {
+  
     e.preventDefault();
+    const inputvalue = e.target.value;
     setCepData(e.target.value);
-    if (cepData.length === 8) {
-      const response = await api_viacep.get(`${cepData}/json/`);
+    
+    if (inputvalue?.length === 8) {
+      const response = await api_viacep.get(`${inputvalue}/json/`);
+      console.log(response.data);
+
       setCep(response.data);
     }
   };
@@ -107,114 +126,96 @@ export default function RegisterPage() {
 
   
 
+  const RegisterStepOne = useCallback(
+    ({ fields, setFields, cep, cepData, setCepData }: any) => {
+      return (
+        <BoxRegister>
+          {/* <FormControl > */}
 
-  const  RegisterStepOne = () => {
+          <CustomTextField
+            key={"name"}
+            placeholder="Nome Completo"
+            type="text"
+            value={fields.name}
+            onChange={(e) => setFields({ ...fields, name: e.target.value })}
+            helperText=" "
+          />
 
-  
+          <CustomTextField
+            key={"email"}
+            placeholder="E-mail"
+            type="text"
+            helperText=" "
+          />
 
-  
-     
-    useEffect(() => {
-      
-    }, []);
+          <CustomTextField
+            key={"password"}
+            placeholder="Senha"
+            type="password"
+            helperText=" "
+          />
+          <CustomTextField
+            key={"nascimento"}
+            placeholder="Data de Nascimento"
+            type="text"
+            helperText=" "
+          />
+          <CustomTextField
+            key={"cpf"}
+            placeholder="CPF"
+            helperText=" "
+            type="text"
+          />
 
-    return (
-      <BoxRegister>
-        {/* <FormControl > */}
-
-        <CustomTextField
-          key={'name'}
-          placeholder="Nome Completo"
-          type="text"
-          value={fields.name || ""}
-          onChange={(e) => setFields({...fields, name: e.target.value})}
-          helperText=" "
-          
-        />
-
-        <CustomTextField
-          key={'email'}
-          placeholder="E-mail"
-          type="text"
-          helperText=" "
-          
-        />
-
-        <CustomTextField
-          key={'password'}
-          placeholder="Senha"
-          type="password"
-          helperText=" "
-          
-        />
-        <CustomTextField
-          key={'nascimento'}
-          placeholder="Data de Nascimento"
-          type="text"
-          helperText=" "
-          
-        />
-        <CustomTextField
-          key={'cpf'}
-          placeholder="CPF"
-          helperText=" "
-          type="text"
-          
-        />
-
-        <CustomOutlinedInput
-          key={'cpf'}
-          placeholder="CEP"
-          type="text"
-          value={cepData || ""}
-          onChange={(e)=>{
-            setCepData(e.target.value);
-            
-          }
-          }
-          onBlur={(e) => handleCep(e)}
-          
-          
-          endArdoment={
-            <InputAdornment position="end">
-              <IconButton
-                onClick={(e) => {
-                  handleCep(e);
-                }}
-              >
-                <FaSearch style={{ fontSize: "20px" }} />
-              </IconButton>
-            </InputAdornment>
-          }
-        />
-        <CustomTextField
-          placeholder="Número"
-          helperText=" "
-          type="text"
-          
-        />
-        <CustomTextField
-          placeholder="Rua"
-          type="text"
-          disabled
-          value={cep.logradouro}
-        />
-        <CustomTextField
-          placeholder="Cidade"
-          type="text"
-          value={cep.localidade}
-          disabled
-        />
-        <CustomTextField
-          placeholder="Estado"
-          type="text"
-          value={cep.uf}
-          disabled
-        />
-        {/* </FormControl> */}
-      </BoxRegister>
-    );
-  }
+          <CustomOutlinedInput
+            key={"cep"}
+            placeholder="CEP"
+            type="text"
+            value={cepData}
+            onChange={(e) => {
+              setCepData(e.target.value);
+            }}
+            onBlur={(e) => handleCep(e)}
+            endArdoment={
+              <InputAdornment position="end">
+                <IconButton
+                  onClick={(e) => {
+                    handleCep(e);
+                  }}
+                >
+                  <FaSearch style={{ fontSize: "20px" }} />
+                </IconButton>
+              </InputAdornment>
+            }
+          />
+          <CustomTextField placeholder="Número" helperText=" " type="text" />
+          <CustomTextField
+            label="Rua"
+            type="text"
+            placeholder=""
+            disabled
+            value={cep.logradouro}
+          />
+          <CustomTextField
+            label="Cidade"
+            placeholder=""
+            type="text"
+            value={cep.localidade}
+            disabled
+          />
+          <CustomTextField
+            label="Estado"
+            type="text"
+            value={cep.uf}
+            placeholder=""
+            disabled
+          />
+          {/* </FormControl> */}
+        </BoxRegister>
+      );
+    },
+    []
+  );
 
   const RegisterStepTwo = () => {
     return (
@@ -292,12 +293,20 @@ export default function RegisterPage() {
 
     function getStepContent(step: number) {
       switch (step) {
+        // case 0:
+        //     return <RegisterStepOne />;
         case 0:
-            return <RegisterStepOne />;
-        case 1:
-            return <RegisterStepTwo/>
-        case 2:
-            return <RegisterStepThree/>
+            return RegisterStepOne({
+              fields,
+              setFields,
+              cep,
+              cepData,
+              setCepData,
+            });
+        // case 1:
+        //     return <RegisterStepTwo/>
+        // case 2:
+        //     return <RegisterStepThree/>
         default:
             return "Unknown step";
 
