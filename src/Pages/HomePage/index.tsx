@@ -1,4 +1,4 @@
-import { Box, Card, Grid, Stack, Typography } from "@mui/material";
+import { Box, Grid, Stack, Typography } from "@mui/material";
 import BasicCard from "../../components/Card";
 
 
