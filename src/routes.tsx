@@ -21,6 +21,8 @@ const Router = (): JSX.Element => {
         <Route path="/Homepage" element={<HomePage />} />
       </Route>
      
+     {/* create route for page 404 */}
+      <Route path="*" element={<h1>404</h1>} />
     </Routes>
   );
 };

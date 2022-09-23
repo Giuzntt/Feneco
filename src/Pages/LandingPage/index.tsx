@@ -109,9 +109,14 @@ export default function LandingPage(){
                     </li>
                   </ul>
                 </div>
-                <Link to="/user/">
-
-                <button>ENTRAR COMO EMPRESA</button>
+                <Link to="/Homepage" style={
+                  {
+                    textDecoration: "none",
+                    color: "white"
+                  }
+                }>
+                  <button>ENTRAR COMO EMPRESA</button>
+            
                 </Link>
               </div>
             </div>

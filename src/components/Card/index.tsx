@@ -6,36 +6,45 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 
-const bull = (
-    <Box
-        component="span"
-        sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
-    >
-        •
-    </Box>
-);
 
 export default function BasicCard() {
     return (
         <Card sx={{ maxWidth: '100%' }}>
-            <CardContent>
-                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                    Word of the Day
+            <CardContent sx={{
+                width: '1150px',
+                flexDirection: 'row',
+                display: 'flex',
+            }}>
+                <Box>
+
+                <Typography variant="h6" color="initial">
+                   Nome da Vaga: 
                 </Typography>
-                <Typography variant="h5" component="div">
-                    be{bull}nev{bull}o{bull}lent
+
+                <Typography variant="h6" color="initial">
+                    Descrição:
                 </Typography>
-                <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    adjective
+                <Typography variant="h6" color="initial">
+                    Microtarefa:
                 </Typography>
-                <Typography variant="body2">
-                    well meaning and kindly.
-                    <br />
-                    {'"a benevolent smile"'}
-                </Typography>
+                </Box>
+
             </CardContent>
-            <CardActions>
-                <Button size="small">Learn More</Button>
+            <CardActions
+                sx={{
+                    maxWidth: '100%',
+                    width: '1150px',
+                    flexDirection: 'row',
+                    display: 'flex',
+                    justifyContent: 'end',
+
+                    
+                }}
+               
+            >
+                <Button size="small"
+                variant="outlined"
+                >Quero me candidatar</Button>
             </CardActions>
         </Card>
     );

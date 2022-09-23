@@ -16,6 +16,14 @@ export const FooterContainer = styled.footer`
     z-index: 3;
     pointer-events: none;
   }
+
+  @media screen  and (max-width: 768px) {
+    height: 30vh;
+    max-width: 100%;
+
+  }
+
+  
 `;
 
 export const FooterContent = styled.div`
@@ -43,5 +51,22 @@ export const FooterContent = styled.div`
     cursor: pointer;
 
     text-decoration: none;
+
+  }
+
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem 1rem;
+
+    p {
+      margin-bottom: 1rem;
+    }
+
+    ul li {
+      margin: 0 10px;
+    }
   }
 `;
