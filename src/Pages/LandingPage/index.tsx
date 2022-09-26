@@ -112,7 +112,12 @@ export default function LandingPage(){
                 <Link to="/Homepage" style={
                   {
                     textDecoration: "none",
-                    color: "white"
+                    color: "white",
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "100%",
                   }
                 }>
                   <button>ENTRAR COMO EMPRESA</button>

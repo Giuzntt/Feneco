@@ -1,7 +1,7 @@
 import { Box, Button,  Grid, IconButton, InputAdornment, Step, StepLabel, Stepper, Typography } from "@mui/material";
 // import { log } from "console";
-import { useCallback, useEffect, useState } from "react";
-import api_viacep from "../../api/api";
+import { useCallback, useState } from "react";
+import {api_viacep} from "../../api/api";
 import { CustomOutlinedInput, CustomTextField } from "../../components/TextField";
 import {  BoxRegister, BoxRegisterTwo, GridItem } from "./styles";
 import Logo from "../../Assets/logo-login.svg"
@@ -303,10 +303,10 @@ export default function RegisterPage() {
               cepData,
               setCepData,
             });
-        // case 1:
-        //     return <RegisterStepTwo/>
-        // case 2:
-        //     return <RegisterStepThree/>
+        case 1:
+            return <RegisterStepTwo/>
+        case 2:
+            return <RegisterStepThree/>
         default:
             return "Unknown step";
 

@@ -7,6 +7,8 @@ interface HeaderProps{
 }
 
 
+
+
 // Create component header
 export default function Header({ isLogged}: HeaderProps) {
     return (

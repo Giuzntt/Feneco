@@ -1,8 +1,7 @@
 [
     {
         "id": 1,
-        "nome": "João",
-        "sobrenome": "Silva",
+        "nome": "João Silva",
         "status": "Desempregado",
         "DataNascimento": "01/05/1990",
         "cpf": "123.456.789-10",

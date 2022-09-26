@@ -68,5 +68,13 @@ export const FooterContent = styled.div`
     ul li {
       margin: 0 10px;
     }
+    img{
+      width: 60%;
+      height: 60%;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
   }
 `;
