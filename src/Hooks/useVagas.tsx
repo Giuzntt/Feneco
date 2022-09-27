@@ -9,7 +9,16 @@ export interface IVagaProps {
   descricao: string;
   tipoVaga: string;
   beneficios: string;
-  microtarefa?: string;
+  microtarefa?: [
+    {
+      id: number;
+      nomeMicrotarefa: string;
+      descricao: string;
+      tipoMicrotarefa: string;
+      beneficios: string;
+    }
+  ];
+  
 }
 
 interface VagasProviderProps {
@@ -18,6 +27,7 @@ interface VagasProviderProps {
 
 interface VagasContextData {
   vagas: IVagaProps[];
+  microtarefas?: IVagaProps[];
 }
 
 const VagasContext = React.createContext<VagasContextData>(
@@ -35,8 +45,15 @@ export function VagasProvider({ children }: VagasProviderProps) {
     loadVagas();
   }, [vagas]);
 
-  return <VagasContext.Provider value={{ vagas }}>{children}</VagasContext.Provider>
+  // async function findTaskById(id: number) {
+  //   const response = await api_vagas.get(`/vagas/${id}/works`);
+  //   return response.data;
+  //   // configure react router
+  //   // navigate to task page
+  
+  // }
 
+  return <VagasContext.Provider value={{ vagas }}>{children}</VagasContext.Provider>;
 }
 
 export function useVagas() {

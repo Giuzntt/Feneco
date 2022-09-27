@@ -1,4 +1,4 @@
-import { FaBullseye } from "react-icons/fa";
+
 import { Outlet } from "react-router-dom";
 import Footer from "../../components/Footer";
 import HeaderLanding from "../../components/Header/Header";

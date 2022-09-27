@@ -91,7 +91,21 @@ export default function LandingPage(){
                     </li>
                   </ul>
                 </div>
+                  <Link to="/vagas" style={
+                  {
+                    textDecoration: "none",
+                    color: "white",
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    height: "100%",
+                  }
+                }>
+
+
                 <button>ENTRAR COMO CANDIDATO</button>
+                </Link>
               </div>
               <div className="content-product-item">
                 <div className="content-product-header">
@@ -109,7 +123,7 @@ export default function LandingPage(){
                     </li>
                   </ul>
                 </div>
-                <Link to="/Homepage" style={
+                <Link to="/vagas" style={
                   {
                     textDecoration: "none",
                     color: "white",

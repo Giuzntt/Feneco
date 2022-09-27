@@ -1,5 +1,6 @@
-import {   Button, Card, CardActions, CardContent, Divider, Grid, Typography  } from "@mui/material";
-
+import {   Box, Button, Card, CardActions, CardContent, Divider, Grid, Typography  } from "@mui/material";
+import { Link } from "react-router-dom";
+import NoVagas from "../../Assets/images/no-vagas.jpg"
 import { useVagas } from "../../Hooks/useVagas";
 import { HomeContent } from "./styles";
 
@@ -19,8 +20,17 @@ const HomePage = () => {
           Vagas Disponiveis:
         </Typography>
         <HomeContent container>
-          {
-            vagas.map((vaga)=>{
+          {/* Se não tiver nenhuma vaga, irá receber uma mensagem vagas não encontradas
+           */}
+          {vagas.length === 0 ? (
+            <Box
+              className="no-vagas"
+            >
+              <img src={NoVagas} alt=""  style={{display:'block', marginLeft:'auto', marginRight:'auto'}}/>
+            </Box>
+          ) : (
+            // Se tiver vagas, irá mostrar as vagas
+            vagas.map((vaga) => {
               return (
                 <Grid item xs={12} sm={6} md={4} lg={3}>
                   <Card sx={{ minWidth: 275 }} key={vaga.id}>
@@ -97,23 +107,24 @@ const HomePage = () => {
                       <Divider />
                     </CardContent>
                     <CardActions>
-                      <Button
-                        size="small"
-                        variant="contained"
-                        color={"warning"}
-                        fullWidth
+                      <Link to={`/vagas/${vaga.id}/work`}
+                        style={{ textDecoration: "none", width: "100%" }}
                       >
-                        Candidatar-se
-                      </Button>
+                        <Button
+                          size="small"
+                          variant="contained"
+                          color={"warning"}
+                          fullWidth
+                        >
+                          Candidatar-se
+                        </Button>
+                      </Link>
                     </CardActions>
                   </Card>
                 </Grid>
               );
-            }
-
-            )
-          }
-          
+            })
+          )}
         </HomeContent>
       </>
     );

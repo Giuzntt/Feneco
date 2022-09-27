@@ -24,9 +24,7 @@ export default function Header({ isLogged}: HeaderProps) {
                   <Link to={"/"}>
                     <li> Quem somos nos</li>
                   </Link>
-                  <Link to={"/Contato"}>
-                    <li>Contato</li>
-                  </Link>
+                  
                   <Link to={"/Login"}>
                     <li>Login</li>
                   </Link>
@@ -34,13 +32,13 @@ export default function Header({ isLogged}: HeaderProps) {
                 </>
               ):(
                 <>
-                    <Link to={"/"}>
+                    <Link to={"/vagas"}>
                       <li> Vagas</li>
                     </Link>
-                    <Link to={"/Contato"}>
+                    <Link to={"/microtarefas"}>
                       <li>Microtarefas</li>
                     </Link>
-                    <Link to={"/Login"}>
+                    <Link to={"/perfil"}>
                       <li>Meu Perfil</li>
                     </Link>
                     <Link to={"/"}>
