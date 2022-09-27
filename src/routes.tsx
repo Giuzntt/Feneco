@@ -17,7 +17,7 @@ const Router = (): JSX.Element => {
   return (
       <Routes>
           <Route path="/" element={<LayoutLanding />}>
-              <Route path="Landing" element={<LandingPage />} />
+              <Route path="" element={<LandingPage />} />
           </Route>
           <Route path="/Login" element={<LoginPage />} />
           <Route path="/Register" element={<RegisterPage />} />
