@@ -119,7 +119,7 @@ export default function LandingPage(){
                       Recruiter.
                     </li>
                     <li>
-                      Crie Micro-tarefas para ver a experiencia dos candidatos.
+                      Crie microtarefas para ver a experiência dos candidatos.
                     </li>
                   </ul>
                 </div>

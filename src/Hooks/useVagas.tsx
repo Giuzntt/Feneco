@@ -4,20 +4,22 @@ import { api_vagas } from "../api/api";
 
 
 export interface IVagaProps {
-  id: number;
+  id: string;
   nomeVaga: string;
   descricao: string;
   tipoVaga: string;
   beneficios: string;
-  microtarefa?: [
-    {
-      id: number;
-      nomeMicrotarefa: string;
-      descricao: string;
-      tipoMicrotarefa: string;
-      beneficios: string;
-    }
-  ];
+  microtarefas: ITasksProps[];
+}
+
+interface ITasksProps{
+
+    id: string;
+    nomeMicrotarefa: string;
+    descricao: string;
+    tipoMicrotarefa: string;
+    beneficios: string;
+
   
 }
 
@@ -27,7 +29,7 @@ interface VagasProviderProps {
 
 interface VagasContextData {
   vagas: IVagaProps[];
-  microtarefas?: IVagaProps[];
+  findTaskById: (id: string) => Promise<void>;
 }
 
 const VagasContext = React.createContext<VagasContextData>(
@@ -45,15 +47,19 @@ export function VagasProvider({ children }: VagasProviderProps) {
     loadVagas();
   }, [vagas]);
 
-  // async function findTaskById(id: number) {
-  //   const response = await api_vagas.get(`/vagas/${id}/works`);
-  //   return response.data;
-  //   // configure react router
-  //   // navigate to task page
-  
-  // }
+  async function findTaskById(id: string) {
 
-  return <VagasContext.Provider value={{ vagas }}>{children}</VagasContext.Provider>;
+    const response = await api_vagas.get(`/vagas/${id}/work`);
+    let array: IVagaProps[] = [];
+    array.push(response.data);
+    setVagas(array);
+
+    // configure react router
+    // navigate to task page
+
+  }
+
+  return <VagasContext.Provider value={{ vagas, findTaskById }}>{children}</VagasContext.Provider>;
 }
 
 export function useVagas() {

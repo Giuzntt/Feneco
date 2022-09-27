@@ -1,12 +1,28 @@
 import {  Grid, Typography } from "@mui/material";
+import { useEffect } from "react";
 import { FaArrowLeft } from "react-icons/fa";
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation, useParams } from "react-router-dom";
 
 import { BoxHeader, BoxWork } from "./styles";
 
-// const { vagas } = useVagas();
+
 
 export function WorkPage(){
+    const id = useParams();
+
+    const { pathname } = useLocation();
+    
+    useEffect(() => {
+        console.log(pathname)
+    }, [pathname])
+
+    //  use hook react router dom para pegar o id da vaga
+   
+
+
+    
+    
+
     return (
         <>
             <BoxHeader>
@@ -39,17 +55,18 @@ export function WorkPage(){
                         <ul>
                             <li>
                                 <Typography variant="h6" color="#FFFF">
-                                    1. Clique no botão "Iniciar" para iniciar a capacitação
+                                    1. Você se candidatou a uma vaga de emprego?
+
                                 </Typography>
                             </li>
                             <li>
                                 <Typography variant="h6" color="#FFFF">
-                                    2. Clique no botão "Iniciar" para iniciar a capacitação
+                                    2. Realizou a microtarefa?
                                 </Typography>
                             </li>
                             <li>
                                 <Typography variant="h6" color="#FFFF">
-                                    3. Clique no botão "Iniciar" para iniciar a capacitação
+                                    3. Aguardando resposta do Gestor?
                                 </Typography>
                             </li>
                             <li>
@@ -57,11 +74,7 @@ export function WorkPage(){
                                     4. Clique no botão "Iniciar" para iniciar a capacitação
                                 </Typography>
                             </li>
-                            <li>
-                                <Typography variant="h6" color="#FFFF">
-                                    5. Clique no botão "Iniciar" para iniciar a capacitação
-                                </Typography>
-                            </li>
+                           
                         </ul>
                     </BoxWork>
                 </Grid>

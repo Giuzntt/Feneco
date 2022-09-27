@@ -1,13 +1,35 @@
 import {   Box, Button, Card, CardActions, CardContent, Divider, Grid, Typography  } from "@mui/material";
-import { Link } from "react-router-dom";
+import { FormEvent, useState } from "react";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import NoVagas from "../../Assets/images/no-vagas.jpg"
 import { useVagas } from "../../Hooks/useVagas";
 import { HomeContent } from "./styles";
 
 
-const HomePage = () => {
 
-    const { vagas } = useVagas();
+
+const HomePage = () => {
+  
+  let navigate = useNavigate()
+  const { vagas, findTaskById } = useVagas();
+  
+ 
+
+
+
+
+   async function getWorkbyId (id:string) {
+       navigate(`/vagas/${id}/work/`) 
+       await findTaskById(id);
+      
+      
+
+
+        // use hook react router dom para pegar o id da vaga
+        // const id = useLocation().pathname.split("/")[2];
+
+    }
+
 
 
     return (
@@ -32,8 +54,8 @@ const HomePage = () => {
             // Se tiver vagas, irá mostrar as vagas
             vagas.map((vaga) => {
               return (
-                <Grid item xs={12} sm={6} md={4} lg={3}>
-                  <Card sx={{ minWidth: 275 }} key={vaga.id}>
+                <Grid item xs={12} sm={6} md={4} lg={3} key={vaga.id}>
+                  <Card sx={{ minWidth: 275 }} >
                     <CardContent>
                       <Typography
                         variant={"h5"}
@@ -43,7 +65,7 @@ const HomePage = () => {
                       >
                         Nome vagas
                       </Typography>
-                      <Typography variant="h6" component="div">
+                      <Typography variant="h6" component="div" textAlign={'center'}>
                         {vaga.nomeVaga}
                       </Typography>
                       <Divider />
@@ -107,18 +129,18 @@ const HomePage = () => {
                       <Divider />
                     </CardContent>
                     <CardActions>
-                      <Link to={`/vagas/${vaga.id}/work`}
-                        style={{ textDecoration: "none", width: "100%" }}
-                      >
+                     
                         <Button
                           size="small"
                           variant="contained"
+                          onClick={() => getWorkbyId(vaga.id)}                        
+                 
                           color={"warning"}
                           fullWidth
                         >
                           Candidatar-se
                         </Button>
-                      </Link>
+                    
                     </CardActions>
                   </Card>
                 </Grid>

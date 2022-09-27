@@ -13,10 +13,12 @@ import { WorkPage } from "./Pages/WorkPage";
 
 
 
+
+
 const Router = (): JSX.Element => {
   return (
       <Routes>
-          <Route path="/" element={<LayoutLanding />}>
+          <Route  path="/" element={<LayoutLanding />}>
               <Route path="" element={<LandingPage />} />
           </Route>
           <Route path="/Login" element={<LoginPage />} />
@@ -28,7 +30,6 @@ const Router = (): JSX.Element => {
               </Route>
               <Route path="microtarefas" element={<TaskPage />} />
               <Route path="training" element={<TrainingPage />} />
-              <Route path="works" element={<WorkPage />} />
           </Route>
           <Route path="*" element={<h1>404</h1>} />
       </Routes>
