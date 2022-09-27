@@ -9,9 +9,7 @@ export const LandingContent = styled.div`
   @media screen and (max-width: 768px) {
     padding: 0 20px;
   }
-  @media screen and (max-width: 768px) {
-    padding: 20px;
-  }
+
 `;
 
 export const BannerHeader = styled.div`
@@ -26,6 +24,13 @@ export const BannerHeader = styled.div`
         width: 95%;
         height: 100%;
         overflow: hidden;
+
+        @media screen and (max-width: 768px) {
+            width: 100%;
+            height: 100%;
+            
+          
+        }
 
     }
     
@@ -80,9 +85,25 @@ export const BannerHeader = styled.div`
             }
         }
 
-        
-        
+       /* how to calcule responsive px? */
+        @media screen and (max-width: 768px) {
+
+            h1 {
+                font-size: 20px;
+            }
+            p {
+                font-size: 16px;
+            }
+            .subtitle{
+                font-size: 12px;
+            }
+            button{
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+
     }
+  }
     
 `
 export const MainContent = styled.div`
@@ -101,6 +122,15 @@ export const MainContent = styled.div`
       font-weight: 700;
       color: #fdc201;
       text-transform: uppercase;
+    }
+
+    @media screen and (max-width: 768px) {
+      h1 {
+        font-size: 20px;
+      }
+      hr{
+        width:20%
+      }
     }
   }
 
@@ -159,7 +189,15 @@ export const MainContent = styled.div`
 
       }
     }
+
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      .content-item {
+        width: 100%;
+        margin-bottom: 20px;
+      }
   }
+}
 `;
 
 export const ProductContent = styled.div`
@@ -177,6 +215,14 @@ export const ProductContent = styled.div`
       font-weight: 700;
       color: #fdc201;
       text-transform: uppercase;
+    }
+       @media screen and (max-width: 768px) {
+      h1 {
+        font-size: 20px;
+      }
+      hr{
+        width:10%
+      }
     }
   }
   h2 {
@@ -235,7 +281,19 @@ export const ProductContent = styled.div`
         text-align: center;
       }
 
-
+      @media screen  and (max-width: 768px) {
+        flex-direction: column;
+        width:  100%;
+        height: 100%;
+        gap: 40px;
+        .content-product-item{
+            
+            width: 100%;
+            height: 100%;
+            margin-bottom: 20px;
+          }
+        
+      }
 
       }
      
