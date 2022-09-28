@@ -4,6 +4,7 @@ import { LayoutUser } from "./Layouts/User";
 import HomePage from "./Pages/HomePage";
 import LandingPage from "./Pages/LandingPage";
 import LoginPage from "./Pages/LoginPage";
+import ProfilePage from "./Pages/ProfilePage";
 import RegisterPage from "./Pages/RegisterPage";
 import TaskPage from "./Pages/TaskPage";
 import { TrainingPage } from "./Pages/TrainingPage";
@@ -31,6 +32,7 @@ const Router = (): JSX.Element => {
               </Route>
               <Route path="microtarefas" element={<TaskPage />} />
               <Route path="training" element={<TrainingPage />} />
+              <Route path="perfil" element={<ProfilePage/>} />
           </Route>
           <Route path="*" element={<h1>404</h1>} />
       </Routes>
