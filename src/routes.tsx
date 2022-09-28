@@ -18,15 +18,16 @@ import { WorkPage } from "./Pages/WorkPage";
 const Router = (): JSX.Element => {
   return (
       <Routes>
-          <Route  path="/" element={<LayoutLanding />}>
+          <Route path="/" element={<LayoutLanding />}>
               <Route path="" element={<LandingPage />} />
           </Route>
           <Route path="/Login" element={<LoginPage />} />
           <Route path="/Register" element={<RegisterPage />} />
 
           <Route path="/" element={<LayoutUser />}>
-              <Route path="vagas" element={<HomePage />}>
-                  <Route path=":id/work" element={<WorkPage />}></Route>
+              <Route path="vagas" >
+                  <Route index element={<HomePage />}/>
+                  <Route path=":id/work" element={<WorkPage />}/>
               </Route>
               <Route path="microtarefas" element={<TaskPage />} />
               <Route path="training" element={<TrainingPage />} />

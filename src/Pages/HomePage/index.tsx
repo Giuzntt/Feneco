@@ -1,6 +1,6 @@
 import {   Box, Button, Card, CardActions, CardContent, Divider, Grid, Typography  } from "@mui/material";
-import { FormEvent, useState } from "react";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+
+import {  useNavigate  } from "react-router-dom";
 import NoVagas from "../../Assets/images/no-vagas.jpg"
 import { useVagas } from "../../Hooks/useVagas";
 import { HomeContent } from "./styles";
@@ -19,13 +19,8 @@ const HomePage = () => {
 
 
    async function getWorkbyId (id:string) {
-       navigate(`/vagas/${id}/work/`) 
+       navigate(`/vagas/${id}/work`) 
        await findTaskById(id);
-      
-      
-
-
-        // use hook react router dom para pegar o id da vaga
         // const id = useLocation().pathname.split("/")[2];
 
     }
@@ -52,98 +47,56 @@ const HomePage = () => {
             </Box>
           ) : (
             // Se tiver vagas, irá mostrar as vagas
-            vagas.map((vaga) => {
+            vagas.map((vaga, index) => {
               return (
-                <Grid item xs={12} sm={6} md={4} lg={3} key={vaga.id}>
-                  <Card sx={{ minWidth: 275 }} >
-                    <CardContent>
-                      <Typography
-                        variant={"h5"}
-                        sx={{ fontSize: 14, textAlign: "center" }}
-                        color="text.secondary"
-                        gutterBottom
-                      >
-                        Nome vagas
-                      </Typography>
-                      <Typography variant="h6" component="div" textAlign={'center'}>
-                        {vaga.nomeVaga}
-                      </Typography>
-                      <Divider />
-                      <Typography
-                        variant={"h5"}
-                        sx={{ fontSize: 14, textAlign: "center", mt: 2 }}
-                        color="text.secondary"
-                        gutterBottom
-                      >
-                        Tipo Vaga
-                      </Typography>
-                      <Typography
-                        variant="h6"
-                        component="div"
-                        textAlign={"center"}
-                      >
-                        {vaga.tipoVaga}
-                      </Typography>
-                      <Divider />
-                      <Typography
-                        variant={"h5"}
-                        sx={{ fontSize: 14, textAlign: "center", mt: 2 }}
-                        color="text.secondary"
-                        gutterBottom
-                      >
-                        Descricao
-                      </Typography>
+                  <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+                      <Card sx={{ minWidth: 275 }}>
+                          <CardContent>
+                              <Typography variant={'h5'} sx={{ fontSize: 14, textAlign: 'center' }} color="text.secondary" gutterBottom>
+                                  Nome vagas
+                              </Typography>
+                              <Typography variant="h6" component="div" textAlign={'center'}>
+                                  {vaga.nomeVaga}
+                              </Typography>
+                              <Divider />
+                              <Typography variant={'h5'} sx={{ fontSize: 14, textAlign: 'center', mt: 2 }} color="text.secondary" gutterBottom>
+                                  Tipo Vaga
+                              </Typography>
+                              <Typography variant="h6" component="div" textAlign={'center'}>
+                                  {vaga.tipoVaga}
+                              </Typography>
+                              <Divider />
+                              <Typography variant={'h5'} sx={{ fontSize: 14, textAlign: 'center', mt: 2 }} color="text.secondary" gutterBottom>
+                                  Descricao
+                              </Typography>
 
-                      <Typography variant="body2" sx={{ textAlign: "center" }}>
-                        {vaga.descricao}
-                      </Typography>
-                      <Divider />
-                      <Typography
-                        variant={"h5"}
-                        sx={{ fontSize: 14, textAlign: "center", mt: 2 }}
-                        color="text.secondary"
-                        gutterBottom
-                      >
-                        Microtarefa
-                      </Typography>
+                              <Typography variant="body2" sx={{ textAlign: 'center' }}>
+                                  {vaga.descricao}
+                              </Typography>
+                              <Divider />
+                              <Typography variant={'h5'} sx={{ fontSize: 14, textAlign: 'center', mt: 2 }} color="text.secondary" gutterBottom>
+                                  Microtarefa
+                              </Typography>
 
-                      <Typography variant="body2" sx={{ textAlign: "center" }}>
-                        Não Disponível
-                      </Typography>
-                      <Divider />
-                      <Typography
-                        variant={"h5"}
-                        sx={{ fontSize: 14, textAlign: "center", mt: 2 }}
-                        color="text.secondary"
-                        gutterBottom
-                      >
-                        Beneficios
-                      </Typography>
-                      <Typography
-                        variant={"h5"}
-                        sx={{ fontSize: 14, textAlign: "center", mt: 2 }}
-                        gutterBottom
-                      >
-                        {vaga.beneficios}
-                      </Typography>
-                      <Divider />
-                    </CardContent>
-                    <CardActions>
-                     
-                        <Button
-                          size="small"
-                          variant="contained"
-                          onClick={() => getWorkbyId(vaga.id)}                        
-                 
-                          color={"warning"}
-                          fullWidth
-                        >
-                          Candidatar-se
-                        </Button>
-                    
-                    </CardActions>
-                  </Card>
-                </Grid>
+                              <Typography variant="body2" sx={{ textAlign: 'center' }}>
+                                  Não Disponível
+                              </Typography>
+                              <Divider />
+                              <Typography variant={'h5'} sx={{ fontSize: 14, textAlign: 'center', mt: 2 }} color="text.secondary" gutterBottom>
+                                  Beneficios
+                              </Typography>
+                              <Typography variant={'h5'} sx={{ fontSize: 14, textAlign: 'center', mt: 2 }} gutterBottom>
+                                  {vaga.beneficios}
+                              </Typography>
+                              <Divider />
+                          </CardContent>
+                          <CardActions>
+                              <Button size="small" variant="contained" onClick={() => getWorkbyId(vaga.id)} color={'warning'} fullWidth>
+                                  Candidatar-se
+                              </Button>
+                          </CardActions>
+                      </Card>
+                  </Grid>
               );
             })
           )}

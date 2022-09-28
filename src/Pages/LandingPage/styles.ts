@@ -20,29 +20,33 @@ export const BannerHeader = styled.div`
     div {
         width: 50%;
         flex-direction: column;
-    img{
-        width: 95%;
-        height: 100%;
-        overflow: hidden;
-
-        @media screen and (max-width: 768px) {
-            width: 100%;
+        img {
+            width: 95%;
             height: 100%;
-            
-          
-        }
+            overflow: hidden;
+            mix-blend-mode: difference;
+            isolation: isolate;
 
+            @media screen and (max-width: 768px) {
+                width: 100%;
+                height: 100%;
+                
+                isolation: isolate;
+                mix-blend-mode: difference;
+            }
+        }
     }
-    
-    }
-    .content-banner, h1,h2, p , button{
+    .content-banner,
+    h1,
+    h2,
+    p,
+    button {
         margin: 10px 0;
         font-family: 'Open Sans', sans-serif;
         font-size: 20px;
-        
     }
-    
-    .content-banner{
+
+    .content-banner {
         flex-direction: column;
         margin: 10px 0;
 
@@ -59,25 +63,25 @@ export const BannerHeader = styled.div`
             color: #ffffff;
             text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
         }
-        .subtitle{
+        .subtitle {
             font-size: 16px;
             font-weight: 300;
             color: #ffffff;
             text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
-            .text-link{
-                text-decoration:underline white;
+            .text-link {
+                text-decoration: underline white;
                 color: #ffffff;
                 margin-left: 5px;
             }
         }
-        button{
+        button {
             font-size: 20px;
             font-weight: 700;
             color: #ffffff;
             padding: 10px 30px;
             border: none;
-            background-color: #FDC201;
+            background-color: #fdc201;
             border-radius: 5px;
             cursor: pointer;
             &:hover {
@@ -85,27 +89,24 @@ export const BannerHeader = styled.div`
             }
         }
 
-       /* how to calcule responsive px? */
+        /* how to calcule responsive px? */
         @media screen and (max-width: 768px) {
-
             h1 {
                 font-size: 20px;
             }
             p {
                 font-size: 16px;
             }
-            .subtitle{
+            .subtitle {
                 font-size: 12px;
             }
-            button{
+            button {
                 font-size: 16px;
                 padding: 10px 20px;
             }
-
+        }
     }
-  }
-    
-`
+`;
 export const MainContent = styled.div`
   .title-main {
     display: flex;

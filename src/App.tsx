@@ -14,9 +14,9 @@ const App = (): JSX.Element => {
       <BrowserRouter>
         
         <Routes />
-        <GlobalStyles />
        
       </BrowserRouter>
+      <GlobalStyles />
 </VagasProvider>
  
   );

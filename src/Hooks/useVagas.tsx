@@ -5,22 +5,22 @@ import { api_vagas } from "../api/api";
 
 export interface IVagaProps {
   id: string;
-  nomeVaga: string;
-  descricao: string;
-  tipoVaga: string;
-  beneficios: string;
-  microtarefas: ITasksProps[];
+  nomeVaga?: string;
+  descricao?: string;
+  tipoVaga?: string;
+  beneficios?: string;
+  microtarefas?: ITasksProps;
 }
 
-interface ITasksProps{
-
-    id: string;
-    nomeMicrotarefa: string;
-    descricao: string;
-    tipoMicrotarefa: string;
-    beneficios: string;
-
-  
+interface ITasksProps {
+    id?: string | undefined;
+    jobCheck?: boolean;
+    taskCheck?: boolean;
+    feedCheck?: boolean;
+    nomeMicrotarefa?: string;
+    descricao?: string;
+    tipoMicrotarefa?: string;
+    beneficios?: string;
 }
 
 interface VagasProviderProps {
@@ -28,8 +28,9 @@ interface VagasProviderProps {
 }
 
 interface VagasContextData {
-  vagas: IVagaProps[];
-  findTaskById: (id: string) => Promise<void>;
+    vagas: IVagaProps[];
+    findTaskById: (id: string | undefined) => Promise<void>;
+    tasks: ITasksProps[];
 }
 
 const VagasContext = React.createContext<VagasContextData>(
@@ -38,6 +39,7 @@ const VagasContext = React.createContext<VagasContextData>(
 
 export function VagasProvider({ children }: VagasProviderProps) {
   const [vagas, setVagas] = useState<IVagaProps[]>([]);
+  const [tasks, setTasks] = useState<ITasksProps[]>([]);
 
   useEffect(() => {
     async function loadVagas() {
@@ -47,11 +49,12 @@ export function VagasProvider({ children }: VagasProviderProps) {
     loadVagas();
   }, [vagas]);
 
-  async function findTaskById(id: string) {
+  async function findTaskById(id: string | undefined): Promise<void> {
 
     const response = await api_vagas.get(`/vagas/${id}/work`);
     let array: IVagaProps[] = [];
     array.push(response.data);
+    setTasks(array);
     setVagas(array);
 
     // configure react router
@@ -59,7 +62,7 @@ export function VagasProvider({ children }: VagasProviderProps) {
 
   }
 
-  return <VagasContext.Provider value={{ vagas, findTaskById }}>{children}</VagasContext.Provider>;
+  return <VagasContext.Provider value={{ tasks,vagas, findTaskById }}>{children}</VagasContext.Provider>;
 }
 
 export function useVagas() {
