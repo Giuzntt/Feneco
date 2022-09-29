@@ -1,4 +1,5 @@
 import { Routes, Route } from "react-router-dom";
+import LayoutCompany from "./Layouts/Company";
 import { LayoutLanding } from "./Layouts/Landing";
 import { LayoutUser } from "./Layouts/User";
 import JobPage from "./Pages/JobPage";
@@ -36,7 +37,11 @@ const Router = (): JSX.Element => {
               <Route path="perfil" element={<ProfilePage />} />
           </Route>
 
-          <Route path="/panel" element={<PanelPage />}></Route>
+          <Route path="/" element={<LayoutCompany />}>
+                <Route path="panel" element={<PanelPage />} />
+
+            
+          </Route>
           <Route path="*" element={<h1>404</h1>} />
       </Routes>
   );

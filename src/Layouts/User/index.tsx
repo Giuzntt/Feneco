@@ -7,7 +7,7 @@ import Header from "../../components/Header/Header"
 export const LayoutUser = () =>{
     return (
         <>
-            <Header isLogged={true} />
+            <Header isLogged={true} isPanel={true} />
             <Outlet />
             <Footer />
         </>
