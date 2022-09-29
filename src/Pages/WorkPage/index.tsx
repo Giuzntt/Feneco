@@ -17,12 +17,11 @@ export function WorkPage(){
 
     // buscar vaga pelo id
     useEffect(()=>{
-        console.log(tasks)
-        loadStatusTask()
-    }, [])
+        loadStatusTask(id)
+    }, [id])
 
-    async function loadStatusTask(){
-       await findTaskById(id);
+    async function loadStatusTask(id: string | undefined) {
+        await findTaskById(id);
     }
 
 
@@ -59,14 +58,14 @@ export function WorkPage(){
                             {
                                 tasks.map((task, index)=>{
                                     return (
-                                        <>
                                             <ul>
+                                        <>
                                                 <li key={index}>
                                                     <Typography variant="h6" color="#FFFF">
                                                         1. Você se candidatou a uma vaga de emprego?
                                                     </Typography>
                                                     <br />
-                                                    <p>{task.jobCheck === true ? 'Sim' : 'Nao'}</p>
+                                                    <p>{task.jobCheck === false ? 'Sim' : 'Nao'}</p>
                                                 </li>
                                                 <li>
                                                     <Typography variant="h6" color="#FFFF">
@@ -82,8 +81,8 @@ export function WorkPage(){
                                                     <br />
                                                     <p>{task.feedCheck === true ? 'Sim' : 'Nao'}</p>
                                                 </li>
-                                            </ul>
                                         </>
+                                            </ul>
                                     );
                                 })
                             }

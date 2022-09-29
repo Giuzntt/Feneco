@@ -123,7 +123,7 @@ export default function LandingPage(){
                     </li>
                   </ul>
                 </div>
-                <Link to="/vagas" style={
+                <Link to="/panel" style={
                   {
                     textDecoration: "none",
                     color: "white",

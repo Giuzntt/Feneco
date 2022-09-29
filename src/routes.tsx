@@ -1,9 +1,10 @@
 import { Routes, Route } from "react-router-dom";
 import { LayoutLanding } from "./Layouts/Landing";
 import { LayoutUser } from "./Layouts/User";
-import HomePage from "./Pages/HomePage";
+import JobPage from "./Pages/JobPage";
 import LandingPage from "./Pages/LandingPage";
 import LoginPage from "./Pages/LoginPage";
+import PanelPage from "./Pages/PanelPage";
 import ProfilePage from "./Pages/ProfilePage";
 import RegisterPage from "./Pages/RegisterPage";
 import TaskPage from "./Pages/TaskPage";
@@ -26,14 +27,16 @@ const Router = (): JSX.Element => {
           <Route path="/Register" element={<RegisterPage />} />
 
           <Route path="/" element={<LayoutUser />}>
-              <Route path="vagas" >
-                  <Route index element={<HomePage />}/>
-                  <Route path=":id/work" element={<WorkPage />}/>
+              <Route path="vagas">
+                  <Route index element={<JobPage />} />
+                  <Route path=":id/work" element={<WorkPage />} />
               </Route>
               <Route path="microtarefas" element={<TaskPage />} />
               <Route path="training" element={<TrainingPage />} />
-              <Route path="perfil" element={<ProfilePage/>} />
+              <Route path="perfil" element={<ProfilePage />} />
           </Route>
+
+          <Route path="/panel" element={<PanelPage />}></Route>
           <Route path="*" element={<h1>404</h1>} />
       </Routes>
   );

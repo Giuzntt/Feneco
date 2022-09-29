@@ -46,7 +46,7 @@ const TaskPage = () => {
                   alignItems: "center",
                 }}
                 >
-                  <Button size="small" variant='outlined'>Ler mais...</Button>
+                  <Button size="small" variant='outlined'>ENTREGAR</Button>
                 </CardActions>
               </Card>
             </BoxTask>

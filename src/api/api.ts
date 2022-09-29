@@ -18,3 +18,11 @@ export const api_vagas = axios.create({
 });
 
 
+export const api_task = axios.create({
+  baseURL: `https://jsonplaceholder.typicode.com/`,
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+
