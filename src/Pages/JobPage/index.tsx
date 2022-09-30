@@ -18,7 +18,7 @@ const HomePage = () => {
 
 
 
-   async function getWorkbyId (id:string) {
+   async function getWorkbyId (id:string | undefined) {
        navigate(`/vagas/${id}/work`) 
        await findTaskById(id);
         // const id = useLocation().pathname.split("/")[2];

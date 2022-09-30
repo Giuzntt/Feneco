@@ -19,7 +19,9 @@ export const BoxHeader = styled(Grid)`
         font-family: 'Open Sans', sans-serif;     
 
        
-
+      &:hover {
+        background-color: #FDD369;
+      }
     }
 
 `

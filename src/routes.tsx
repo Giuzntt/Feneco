@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import LayoutCompany from "./Layouts/Company";
 import { LayoutLanding } from "./Layouts/Landing";
 import { LayoutUser } from "./Layouts/User";
+import AddOrUpdateJob from "./Pages/AddOrUpdateJob";
 import JobPage from "./Pages/JobPage";
 import LandingPage from "./Pages/LandingPage";
 import LoginPage from "./Pages/LoginPage";
@@ -38,9 +39,9 @@ const Router = (): JSX.Element => {
           </Route>
 
           <Route path="/" element={<LayoutCompany />}>
-                <Route path="panel" element={<PanelPage />} />
-
-            
+              <Route path="panel" element={<PanelPage/>}>
+              </Route>
+                  <Route path="/create" element={<AddOrUpdateJob />} />
           </Route>
           <Route path="*" element={<h1>404</h1>} />
       </Routes>

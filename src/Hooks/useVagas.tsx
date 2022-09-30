@@ -4,7 +4,7 @@ import { api_vagas } from "../api/api";
 
 
 export interface IVagaProps {
-  id: string;
+  id?: string;
   nomeVaga?: string;
   descricao?: string;
   tipoVaga?: string;
@@ -47,7 +47,7 @@ export function VagasProvider({ children }: VagasProviderProps) {
       setVagas(response.data);
     }
     loadVagas();
-  }, [vagas]);
+  }, []);
 
   async function findTaskById(id: string | undefined): Promise<void> {
 
@@ -56,11 +56,10 @@ export function VagasProvider({ children }: VagasProviderProps) {
     array.push(response.data);
     setTasks(array);
     setVagas(array);
-
-    // configure react router
-    // navigate to task page
-
   }
+
+ 
+
 
   return <VagasContext.Provider value={{ tasks,vagas, findTaskById }}>{children}</VagasContext.Provider>;
 }
