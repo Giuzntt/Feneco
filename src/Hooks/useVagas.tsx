@@ -1,4 +1,6 @@
 import React, { ReactNode, useContext, useEffect, useState } from "react";
+import { toast } from "react-toastify";
+import { POSITION } from "react-toastify/dist/utils";
 import { api_vagas } from "../api/api";
 
 
@@ -30,7 +32,9 @@ interface VagasProviderProps {
 interface VagasContextData {
     vagas: IVagaProps[];
     findTaskById: (id: string | undefined) => Promise<void>;
+    createTask: (data: ITasksProps) => Promise<void>;
     tasks: ITasksProps[];
+    deleteJob: (id: string | undefined) => Promise<void>;
 }
 
 const VagasContext = React.createContext<VagasContextData>(
@@ -60,8 +64,43 @@ export function VagasProvider({ children }: VagasProviderProps) {
 
  
 
+  async function createTask(data: ITasksProps): Promise<void> {
+     await api_vagas.post("/vagas", data).then(
+      (response) => {
+        if (response.status === 201) {
+          // create toastify
+          toast.success("Vaga criada com sucesso!");
 
-  return <VagasContext.Provider value={{ tasks,vagas, findTaskById }}>{children}</VagasContext.Provider>;
+          setTasks([...tasks, response.data]);
+        } else if (response.status === 400) {
+          toast.error("Erro ao criar vaga!");
+        }
+        }).catch((error) => {
+          toast.error("Erro ao criar vaga");
+
+        });
+      }
+    
+
+      async function deleteJob(id: string | undefined): Promise<void> {
+        await api_vagas.delete(`/vagas/${id}`).then((response) => {
+          if (response.status === 200) {
+            
+            setVagas(vagas.filter((vaga) => vaga.id !== id
+            // remove from array vaga
+            
+
+            ));
+          toast.success("Vaga deletada com sucesso!");
+          } else if (response.status === 400) {
+            toast.error("Erro ao deletar vaga!");
+          }
+        });
+      }
+  
+
+
+  return <VagasContext.Provider value={{ deleteJob,tasks, vagas, findTaskById, createTask }}>{children}</VagasContext.Provider>;
 }
 
 export function useVagas() {
