@@ -1,6 +1,5 @@
 import React, { ReactNode, useContext, useEffect, useState } from "react";
 import { toast } from "react-toastify";
-import { POSITION } from "react-toastify/dist/utils";
 import { api_vagas } from "../api/api";
 
 
@@ -46,12 +45,29 @@ export function VagasProvider({ children }: VagasProviderProps) {
   const [tasks, setTasks] = useState<ITasksProps[]>([]);
 
   useEffect(() => {
+
+    loadVagas()
     async function loadVagas() {
-      const response = await api_vagas.get("/vagas");
-      setVagas(response.data);
+       await api_vagas.get("/vagas").then(
+        (response)=>{
+          if(response.status === 200){
+            setVagas(response.data)
+          }
+
+         else if(response.status === 429){
+            setTimeout(() => {
+              loadVagas();
+            }, 5000);
+            
+          }
+        }).catch((error)=>{
+          console.log(error)
+        })
+
+    
     }
-    loadVagas();
-  }, []);
+   
+  }, [vagas, tasks]);
 
   async function findTaskById(id: string | undefined): Promise<void> {
 
@@ -76,7 +92,7 @@ export function VagasProvider({ children }: VagasProviderProps) {
           toast.error("Erro ao criar vaga!");
         }
         }).catch((error) => {
-          toast.error("Erro ao criar vaga");
+          toast.error("Erro ao criar vaga" );
 
         });
       }

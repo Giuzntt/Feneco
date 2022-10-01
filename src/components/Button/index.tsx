@@ -12,6 +12,8 @@ interface IButtonProps {
     startIcon?: React.ReactNode;
     children: React.ReactNode;
     to: string;
+    onClick?: () => void;
+
 }
 
 
@@ -27,23 +29,16 @@ const theme = createTheme({
 
 
 
-export  function  CustomButton ({variant, size, startIcon, children, to}: IButtonProps) {
+export  function CustomButton({ variant, size, startIcon, children, to, onClick }: IButtonProps) {
     return (
-    <ThemeProvider theme={theme}>
-
-        <Link to={to} style={{ textDecoration: 'none', 
-        color: "inherit", width: "100%" }}>
-            <ButtonStyled
-                variant={variant}
-                size={size}
-                fullWidth
-                startIcon={startIcon}
-            >
-                {children}
-            </ButtonStyled>
-        </Link>
-    </ThemeProvider>
-    )
+        <ThemeProvider theme={theme}>
+            <Link to={to} style={{ textDecoration: 'none', color: 'inherit', width: '100%' }}>
+                <ButtonStyled variant={variant} size={size} fullWidth startIcon={startIcon} onClick={onClick}>
+                    {children}
+                </ButtonStyled>
+            </Link>
+        </ThemeProvider>
+    );
 }
 
 

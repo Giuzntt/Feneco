@@ -1,9 +1,10 @@
-import { Button, Grid, Typography } from '@mui/material';
+import { Button, Typography } from '@mui/material';
 import TextField from '@mui/material/TextField'
-import { useForm, Controller } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { useVagas } from '../../Hooks/useVagas';
 import {  toast } from 'react-toastify';
 import { GridContent } from './styles';
+import { useNavigate } from 'react-router-dom';
 
 interface IMyForm {
     nomeVaga?: string;
@@ -26,6 +27,8 @@ const CreateOrUpdateJob = () => {
     } = useForm<IMyForm>();
 
     async function onSubmit (data: IMyForm) {
+
+        navigate('/panel')
         toast.success('Vaga criada com sucesso!', {
             position: 'top-right',
             autoClose: 5000,
@@ -35,14 +38,10 @@ const CreateOrUpdateJob = () => {
             draggable: true,
             progress: undefined,
         });
-
-    
         await createTask(data)
-       
-
-
-
     };
+
+    const navigate = useNavigate();
 
    
     return (
@@ -74,7 +73,7 @@ const CreateOrUpdateJob = () => {
                         error={!!errors.nomeVaga}
                         helperText={errors?.nomeVaga?.message}
                         {...register("nomeVaga", {
-                            required: "error text"
+                            required: "Favor preencher o campo nome da vaga",
                         })}
                     />
                     <TextField
@@ -84,7 +83,7 @@ const CreateOrUpdateJob = () => {
                         error={!!errors.descricao}
                         helperText={errors?.descricao?.message}
                         {...register("descricao", {
-                            required: "error text"
+                            required: "Favor preencher a descrição"
                         })}
                     />
                     <TextField
@@ -94,7 +93,7 @@ const CreateOrUpdateJob = () => {
                         error={!!errors.tipoVaga}
                         helperText={errors?.tipoVaga?.message}
                         {...register("tipoVaga", {
-                            required: "error text"
+                            required: "Favor preencher o tipo de vaga"
                         })}
                     />
                     <TextField
@@ -104,7 +103,7 @@ const CreateOrUpdateJob = () => {
                         error={!!errors.beneficios}
                         helperText={errors?.beneficios?.message}
                         {...register("beneficios", {
-                            required: "error text"
+                            required: "Faça uma breve descrição dos beneficios"
                         })}
                     />
 
@@ -112,8 +111,9 @@ const CreateOrUpdateJob = () => {
                         fullWidth
                         color="primary"
                         variant="contained"
+                    
                     >
-                        Submit
+                        CRIAR VAGA
                     </Button>
                 </form>
                   

@@ -3,7 +3,7 @@ import { Grid } from "@mui/material";
 
 
 
-export const  GridContent  = styled(Grid)`
+export const GridContent = styled(Grid)`
     padding: 0 60px;
     flex-direction: column;
     align-items: center;
@@ -22,8 +22,20 @@ export const  GridContent  = styled(Grid)`
         gap: 10px;
         margin-top: 20px;
 
+
+    .MuiButton-root{
+        width: 100%;
+        max-width: 400px;
+        margin-top: 20px;
+        background-color:#FDC201;
+        color: #FFFFFF;
+        font-weight: bold;
+        font-size: 16px;
+
+
     }
+}
 
 
 
-`
+`;

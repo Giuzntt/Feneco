@@ -1,9 +1,10 @@
 import { Button, Card, CardActions, CardContent, Typography } from "@mui/material";
-
 import { FaPlus } from "react-icons/fa";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useVagas } from "../../Hooks/useVagas";
 import { BoxHeader, GridContentPanel } from "./styles";
+
+
 
 
 
@@ -16,6 +17,14 @@ const PanelPage = () =>{
 
     const { vagas, deleteJob } = useVagas()
 
+    // create array list state  to save the data from the api
+
+  
+
+
+
+        
+
     async function deleteVaga(id: string | undefined) {
 
         await deleteJob(id)
@@ -24,11 +33,17 @@ const PanelPage = () =>{
 
     return (
         <>
-            <Typography variant="h4" component="h1" sx={{ textAlign: 'center', marginTop: '2rem', fontFamily: 'Open Sans', fontWeight: 'bold', color: '#929090' }}>
-                Panel
-            </Typography>
+            
             <BoxHeader>
-                <Link to="/create">
+                <Link to="/create"
+                    style={{
+                        marginRight: 'auto',
+                        textDecoration: 'none',
+                        color: '#fff',
+                        display: 'flex',
+                        gap: '0.5rem'
+                    }}
+                >
                     <Button variant="contained" color="primary" startIcon={<FaPlus />} >
                         Adicionar Vaga
                     </Button>
@@ -38,7 +53,13 @@ const PanelPage = () =>{
             <GridContentPanel container>
             
                 {
-                    vagas.map((vaga , index) => {
+                    vagas.length === 0 ? (
+                        <Typography variant="h4" component="h1" sx={{ textAlign: 'center', marginTop: '2rem', fontFamily: 'Open Sans', fontWeight: 'bold', color: '#929090' }}>
+                            Nenhuma vaga encontrada
+                        </Typography>
+                    ) : (
+               
+                        vagas.map((vaga , index) => {
                         return(
                             <>
                                 <Card sx={{ minWidth: 275 }} key={index}>
@@ -74,8 +95,12 @@ const PanelPage = () =>{
                             </>
                         )
 
-                    }
-                    )   
+                    })  
+                    
+                    
+                 
+                        )
+                             
                   
                 }
 

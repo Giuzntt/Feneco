@@ -202,6 +202,7 @@ export const MainContent = styled.div`
 `;
 
 export const ProductContent = styled.div`
+  margin-bottom: 20px;
   .title-product {
     display: flex;
     justify-content: space-between;
