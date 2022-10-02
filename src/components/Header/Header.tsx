@@ -23,7 +23,7 @@ export default function Header({ isLogged, isPanel }: HeaderProps) {
               isLogged=== false ? (
                 <>
                   <Link to={"/"}>
-                    <li> Quem somos nos</li>
+                    <li> Nossa empresa</li>
                   </Link>
                   
                   <Link to={"/Login"}>

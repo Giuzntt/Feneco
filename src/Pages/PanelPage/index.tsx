@@ -1,17 +1,8 @@
 import { Button, Card, CardActions, CardContent, Typography } from "@mui/material";
 import { FaPlus } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useVagas } from "../../Hooks/useVagas";
 import { BoxHeader, GridContentPanel } from "./styles";
-
-
-
-
-
-
-
-
-
 
 const PanelPage = () =>{
 
@@ -21,7 +12,7 @@ const PanelPage = () =>{
 
   
 
-
+    let navigate = useNavigate()
 
         
 
@@ -34,33 +25,31 @@ const PanelPage = () =>{
     return (
         <>
             
+
             <BoxHeader>
-                <Link to="/create"
+                <Link
+                    to="/create/"
                     style={{
-                        marginRight: 'auto',
                         textDecoration: 'none',
                         color: '#fff',
                         display: 'flex',
                         gap: '0.5rem'
                     }}
                 >
-                    <Button variant="contained" color="primary" startIcon={<FaPlus />} >
+                    <Button variant="contained" color="primary" startIcon={<FaPlus />}>
                         Adicionar Vaga
                     </Button>
                 </Link>
             </BoxHeader>
 
             <GridContentPanel container>
-            
-                {
-                    vagas.length === 0 ? (
-                        <Typography variant="h4" component="h1" sx={{ textAlign: 'center', marginTop: '2rem', fontFamily: 'Open Sans', fontWeight: 'bold', color: '#929090' }}>
-                            Nenhuma vaga encontrada
-                        </Typography>
-                    ) : (
-               
-                        vagas.map((vaga , index) => {
-                        return(
+                {vagas.length === 0 ? (
+                    <Typography variant="h4" component="h1" sx={{ textAlign: 'center', marginTop: '2rem', fontFamily: 'Open Sans', fontWeight: 'bold', color: '#929090' }}>
+                        Nenhuma vaga encontrada
+                    </Typography>
+                ) : (
+                    vagas.map((vaga, index) => {
+                        return (
                             <>
                                 <Card sx={{ minWidth: 275 }} key={index}>
                                     <CardContent>
@@ -79,32 +68,21 @@ const PanelPage = () =>{
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
-                                        <Button size="small" variant="contained">
+                                        <Button size="small" variant="contained" onClick={() => navigate(`/panel/${vaga.id}`)}>
                                             EDITAR
                                         </Button>
                                         <Button size="small" variant="contained">
                                             TAREFAS
                                         </Button>
-                                        <Button size="small" variant="contained"
-                                            onClick={() => deleteVaga(vaga.id)}
-                                        >
+                                        <Button size="small" variant="contained" onClick={() => deleteVaga(vaga.id)}>
                                             EXCLUIR
                                         </Button>
                                     </CardActions>
                                 </Card>
                             </>
-                        )
-
-                    })  
-                    
-                    
-                 
-                        )
-                             
-                  
-                }
-
-                
+                        );
+                    })
+                )}
             </GridContentPanel>
         </>
     );

@@ -7,6 +7,7 @@ import JobPage from "./Pages/JobPage";
 import LandingPage from "./Pages/LandingPage";
 import LoginPage from "./Pages/LoginPage";
 import PanelPage from "./Pages/PanelPage";
+import ProfileCompany from "./Pages/ProfileCompany";
 import ProfilePage from "./Pages/ProfilePage";
 import RegisterPage from "./Pages/RegisterPage";
 import TaskPage from "./Pages/TaskPage";
@@ -39,9 +40,12 @@ const Router = (): JSX.Element => {
           </Route>
 
           <Route path="/" element={<LayoutCompany />}>
-              <Route path="panel" element={<PanelPage/>}>
+                  <Route path="create/" element={<CreateOrUpdateJob />} />
+              <Route path="/panel">
+                  <Route index element={<PanelPage />} />
+                  <Route path=":id" element={<CreateOrUpdateJob />} />
               </Route>
-              <Route path="/create" element={<CreateOrUpdateJob />} />
+              <Route path="/perfil-company" element={<ProfileCompany />} />
           </Route>
           <Route path="*" element={<h1>404</h1>} />
       </Routes>

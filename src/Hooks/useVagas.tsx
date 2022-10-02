@@ -34,6 +34,7 @@ interface VagasContextData {
     createTask: (data: ITasksProps) => Promise<void>;
     tasks: ITasksProps[];
     deleteJob: (id: string | undefined) => Promise<void>;
+    updateJob: (data: IVagaProps, id: string | undefined) => Promise<void>;
 }
 
 const VagasContext = React.createContext<VagasContextData>(
@@ -44,30 +45,31 @@ export function VagasProvider({ children }: VagasProviderProps) {
   const [vagas, setVagas] = useState<IVagaProps[]>([]);
   const [tasks, setTasks] = useState<ITasksProps[]>([]);
 
+  
   useEffect(() => {
 
     loadVagas()
-    async function loadVagas() {
-       await api_vagas.get("/vagas").then(
-        (response)=>{
-          if(response.status === 200){
-            setVagas(response.data)
-          }
-
-         else if(response.status === 429){
-            setTimeout(() => {
-              loadVagas();
-            }, 5000);
-            
-          }
-        }).catch((error)=>{
-          console.log(error)
-        })
-
     
-    }
    
-  }, [vagas, tasks]);
+  }, []);
+
+
+  async function loadVagas() {
+      await api_vagas
+          .get('/vagas')
+          .then((response) => {
+              if (response.status === 200) {
+                  setVagas(response.data);
+              } else if (response.status === 429) {
+                  setTimeout(() => {
+                      loadVagas();
+                  }, 5000);
+              }
+          })
+          .catch((error) => {
+              console.log(error);
+          });
+  }
 
   async function findTaskById(id: string | undefined): Promise<void> {
 
@@ -97,6 +99,25 @@ export function VagasProvider({ children }: VagasProviderProps) {
         });
       }
     
+      async function updateJob(data: IVagaProps, id: string | undefined): Promise<void> {
+          await api_vagas
+              .put(`/vagas/${id}`, data)
+              .then((response) => {
+                  if (response.status === 200) {
+                      // create toastify
+                      toast.success('Vaga atualizada com sucesso!');
+
+                      setTasks([...tasks, response.data]);
+                  } else if (response.status === 400) {
+                      toast.error('Erro ao atualizar vaga!');
+                  }
+              })
+              .catch((error) => {
+                  toast.error('Erro ao atualizar vaga');
+              });
+      }
+
+
 
       async function deleteJob(id: string | undefined): Promise<void> {
         await api_vagas.delete(`/vagas/${id}`).then((response) => {
@@ -116,7 +137,7 @@ export function VagasProvider({ children }: VagasProviderProps) {
   
 
 
-  return <VagasContext.Provider value={{ deleteJob,tasks, vagas, findTaskById, createTask }}>{children}</VagasContext.Provider>;
+  return <VagasContext.Provider value={{ deleteJob, tasks, vagas, findTaskById, createTask, updateJob }}>{children}</VagasContext.Provider>;
 }
 
 export function useVagas() {

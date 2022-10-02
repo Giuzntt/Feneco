@@ -1,8 +1,6 @@
 import axios from "axios";
 
 
-
-
 export const api_viacep= axios.create({
     baseURL: `https://viacep.com.br/ws/`,
     headers: {

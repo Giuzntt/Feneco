@@ -1,10 +1,12 @@
-import { Button, Typography } from '@mui/material';
+import { Button, CircularProgress, Typography } from '@mui/material';
 import TextField from '@mui/material/TextField'
-import { useForm } from 'react-hook-form';
-import { useVagas } from '../../Hooks/useVagas';
-import {  toast } from 'react-toastify';
+import { Controller, useForm } from 'react-hook-form';
+import { IVagaProps, useVagas } from '../../Hooks/useVagas';
 import { GridContent } from './styles';
-import { useNavigate } from 'react-router-dom';
+import {  useNavigate, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { api_vagas } from '../../api/api';
+
 
 interface IMyForm {
     nomeVaga?: string;
@@ -13,35 +15,89 @@ interface IMyForm {
     beneficios?: string;
 }
 
-
-
-
 const CreateOrUpdateJob = () => {
-    const { createTask } = useVagas()
-   
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
+    const { createTask, updateJob } = useVagas();
+
+    const {id} = useParams<{id: string}>()
+
+    const [vaga, setVaga] = useState<IVagaProps>()
+    const [isFetching, setFetching] = useState(false);
+    let navigate = useNavigate();
     
-    } = useForm<IMyForm>();
+
+    
+
+    
+
+    useEffect(() => {
+        getVaga();
+    }, []);
+
+    async function createTaskVaga(data: IMyForm) {
+        setFetching(true);
+        await createTask(data)
+        setFetching(false);
+        navigate('/panel');
+    }
+
+    async function updateVaga(data: IMyForm) {
+
+        await updateJob(data, id);
+        navigate('/panel');
+    }
+
+     async function getVaga() {
+        try{
+            setFetching(true);
+            const {data} = await api_vagas.get(`/vagas/${id}`) ;
+            console.log(data, 'vaga');
+            setVaga(data)
+        } finally {
+            setFetching(false);
+        }
+     }
+
+
+    const {
+        handleSubmit,
+        control,
+        formState: { errors }
+    } = useForm<IMyForm>({});
+
+
+    //  use vaga in useRef
+    
+    //  use vaga in useEffect
+    
+
 
     async function onSubmit (data: IMyForm) {
 
-        navigate('/panel')
-        toast.success('Vaga criada com sucesso!', {
-            position: 'top-right',
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-        });
-        await createTask(data)
+
+        if(id) {
+             await updateVaga(data)
+        }    else {
+            await createTaskVaga(data);
+        }
+
+
     };
 
-    const navigate = useNavigate();
+ 
+
+    if(isFetching){
+        return <><CircularProgress
+        color="warning"
+        sx={{
+            position: 'absolute',
+            fontSize: 100,
+            top: '50%',
+            left: '50%',
+            marginTop: -12,
+            marginLeft: -12,
+        }}
+        /></>
+    }
 
    
     return (
@@ -58,65 +114,51 @@ const CreateOrUpdateJob = () => {
                     fontWeight: '700'
                 }}
             >
-                Adicionar Vaga
+                {id ? 'Editar Vaga' : 'Criar Vaga'}
             </Typography>
-            <GridContent
-                container
-            >
-                
+            <GridContent container>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                
-                    <TextField
-                        variant="outlined"
-                        margin="none"
-                        label="Nome da Vaga"
-                        error={!!errors.nomeVaga}
-                        helperText={errors?.nomeVaga?.message}
-                        {...register("nomeVaga", {
-                            required: "Favor preencher o campo nome da vaga",
-                        })}
+                    <Controller
+                        name="nomeVaga"
+                        control={control}
+                        rules={{ required: false }}
+                        defaultValue={vaga?.nomeVaga}
+                        render={({ field }) => (
+                            <TextField {...field} label="Nome da Vaga" variant="outlined" fullWidth sx={{ marginBottom: '1rem' }} error={!!errors.nomeVaga} helperText={errors.nomeVaga?.message} />
+                        )}
                     />
-                    <TextField
-                        variant="outlined"
-                        margin="none"
-                        label="Descrição"
-                        error={!!errors.descricao}
-                        helperText={errors?.descricao?.message}
-                        {...register("descricao", {
-                            required: "Favor preencher a descrição"
-                        })}
+                    <Controller
+                        name="descricao"
+                        control={control}
+                        rules={{ required: false }}
+                        defaultValue={vaga?.descricao}
+                        render={({ field }) => (
+                            <TextField {...field} label="Descrição" variant="outlined" fullWidth sx={{ marginBottom: '1rem' }} error={!!errors.descricao} helperText={errors.descricao?.message} />
+                        )}
                     />
-                    <TextField
-                        variant="outlined"
-                        margin="none"
-                        label="Tipo de Vaga"
-                        error={!!errors.tipoVaga}
-                        helperText={errors?.tipoVaga?.message}
-                        {...register("tipoVaga", {
-                            required: "Favor preencher o tipo de vaga"
-                        })}
+                    <Controller
+                        name="tipoVaga"
+                        control={control}
+                        rules={{ required: false }}
+                        defaultValue={vaga?.tipoVaga}
+                        render={({ field }) => (
+                            <TextField {...field} label="Tipo da Vaga" variant="outlined" fullWidth sx={{ marginBottom: '1rem' }} error={!!errors.tipoVaga} helperText={errors.tipoVaga?.message} />
+                        )}
                     />
-                    <TextField
-                        variant="outlined"
-                        margin="none"
-                        label="Beneficios"
-                        error={!!errors.beneficios}
-                        helperText={errors?.beneficios?.message}
-                        {...register("beneficios", {
-                            required: "Faça uma breve descrição dos beneficios"
-                        })}
+                    <Controller
+                        name="beneficios"
+                        control={control}
+                        rules={{ required: false }}
+                        defaultValue={vaga?.beneficios}
+                        render={({ field }) => (
+                            <TextField {...field} label="Baneficios" variant="outlined" fullWidth sx={{ marginBottom: '1rem' }} error={!!errors.beneficios} helperText={errors.beneficios?.message} />
+                        )}
                     />
 
-                    <Button type="submit"  
-                        fullWidth
-                        color="primary"
-                        variant="contained"
-                    
-                    >
-                        CRIAR VAGA
+                    <Button type="submit" fullWidth color="primary" variant="contained">
+                        {id ? 'Atualizar Vaga' : 'Criar Vaga'}
                     </Button>
                 </form>
-                  
             </GridContent>
         </>
     );

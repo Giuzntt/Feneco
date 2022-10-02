@@ -8,6 +8,7 @@ import Logo from "../../Assets/logo-login.svg"
 import {  FaSearch } from "react-icons/fa";
 
 import { SelectField } from "../../components/Select";
+import { Link } from "react-router-dom";
 
 interface ICepState {
     logradouro: string;
@@ -219,38 +220,39 @@ export default function RegisterPage() {
 
   const RegisterStepTwo = () => {
     return (
-      <BoxRegisterTwo>
-        <SelectField
-          label="Selecione a área desejada"
-          value={changeSelect}
-          onChange={(e) => setChangeSelect(e.target.value)}
-          options={[
-            { value: "1", label: "Front-end Developer" },
-            { value: "2", label: "Back-end Developer" },
-          ]}
-        />
-        <SelectField
-          label="Selecione a sua experiência"
-          value={changeSelectTwo}
-          onChange={(e) => setChangeSelectTwo(e.target.value)}
-          options={[
-            { value: "1", label: "Iniciante" },
-            { value: "2", label: "Junior" },
-            { value: "3", label: "Pleno" },
-            { value: "4", label: "Senior" },
-            { value: "5", label: "Especialista" },
-          ]}
-        />
-        <SelectField
-          label="Selecione o modelo de trabalho"
-          value={changeSelectThree}
-          onChange={(e) => setChangeSelectThree(e.target.value)}
-          options={[
-            { value: "1", label: "Remoto" },
-            { value: "2", label: "Presencial" },
-          ]}
-        />
-      </BoxRegisterTwo>
+        <BoxRegisterTwo>
+            <SelectField
+                label="Selecione a área desejada"
+                value={changeSelect}
+                onChange={(e) => setChangeSelect(e.target.value)}
+                options={[
+                    { value: '1', label: 'Front-end Developer' },
+                    { value: '2', label: 'Back-end Developer' }
+                ]}
+            />
+            <SelectField
+                label="Selecione a sua experiência"
+                value={changeSelectTwo}
+                onChange={(e) => setChangeSelectTwo(e.target.value)}
+                options={[
+                    { value: '1', label: 'Iniciante' },
+                    { value: '2', label: 'Junior' },
+                    { value: '3', label: 'Pleno' },
+                    { value: '4', label: 'Senior' },
+                    { value: '5', label: 'Especialista' }
+                ]}
+            />
+            <SelectField
+                label="Selecione o modelo de trabalho"
+                value={changeSelectThree}
+                onChange={(e) => setChangeSelectThree(e.target.value)}
+                options={[
+                    { value: '1', label: 'Remoto' },
+                    { value: '2', label: 'Presencial' }
+                ]}
+            />
+            <CustomTextField key={'cv'} placeholder="Link do seu currículo" helperText=" " type="text" />
+        </BoxRegisterTwo>
     );
     }
     const  RegisterStepThree = () =>{
@@ -372,6 +374,21 @@ export default function RegisterPage() {
               </Button>
               <Box sx={{ flex: "1 1 auto" }} />
 
+              <Link to={
+                activeStep === steps.length - 1 ? "/vagas" : "#"
+
+              }
+              style={{ textDecoration: "none",
+              color: "#FFFF", 
+              backgroundColor: "#FCC400",
+              borderRadius: "5px",
+              padding: "10px 20px",
+              fontSize: "16px",
+
+            }}
+
+              
+              >
               <Button
                 onClick={handleNext}
                 variant="contained"
@@ -385,6 +402,7 @@ export default function RegisterPage() {
                   ? "Finalizar cadastro"
                   : "Próximo"}
               </Button>
+                </Link>
             </Box>
           </>
         )}
