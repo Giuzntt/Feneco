@@ -74,7 +74,9 @@ const TaskPage = () => {
                                             alignItems: 'center'
                                         }}
                                     >
-                                        <Button size="small" variant="outlined">
+                                        <Button size="small" variant="outlined"
+                                        color="warning"
+                                        >
                                             ENTREGAR
                                         </Button>
                                     </CardActions>
