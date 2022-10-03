@@ -12,6 +12,7 @@ interface ITaskProps {
     id?: string | undefined;
     nomeMicrotarefa?: string;
     descricao?: string;
+    descricaoMicrotarefa?: string;
     dataMicrotarefa?: string;
 }
 
@@ -177,7 +178,7 @@ const MicroTaskPage = () => {
 
                                     <Typography variant="h5" component="div">
                                         Descrição da Microtarefa
-                                        <Typography variant="body1">{task.descricao}</Typography>
+                                        <Typography variant="body1">{task.descricaoMicrotarefa}</Typography>
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
