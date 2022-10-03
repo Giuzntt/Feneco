@@ -8,7 +8,7 @@ import { BoxTask } from './styles';
 interface TaskProps {
     id?: string | undefined;
     nomeMicrotarefa: string;
-    descricao?: string;
+    descricaoMicrotarefa?: string;
     dataMicrotarefa?: string;
     beneficios?: string;
 }
@@ -65,7 +65,7 @@ const TaskPage = () => {
                                         <Typography sx={{ mb: 1.5 }} color="text.secondary">
                                             Descrição Microtarefa
                                         </Typography>
-                                        <Typography variant="body2">{tasks.descricao}</Typography>
+                                        <Typography variant="body2">{tasks.descricaoMicrotarefa}</Typography>
                                     </CardContent>
                                     <CardActions
                                         sx={{
