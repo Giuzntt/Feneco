@@ -79,7 +79,7 @@ const HomePage = () => {
                               </Typography>
 
                               <Typography variant="body2" sx={{ textAlign: 'center' }}>
-                                  Não Disponível
+                                 {vaga.microtarefa===true? 'Sim': 'Não'} 
                               </Typography>
                               <Divider />
                               <Typography variant={'h5'} sx={{ fontSize: 14, textAlign: 'center', mt: 2 }} color="text.secondary" gutterBottom>

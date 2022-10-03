@@ -9,6 +9,7 @@ export interface IVagaProps {
   nomeVaga?: string;
   descricao?: string;
   tipoVaga?: string;
+  microtarefa?: boolean;
   beneficios?: string;
   microtarefas?: ITasksProps;
 }
