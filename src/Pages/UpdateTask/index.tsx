@@ -13,6 +13,7 @@ interface IMyForm {
     id?: string | undefined;
     nomeMicrotarefa?: string;
     descricao?: string;
+    descricaoMicrotarefa?: string;
     dataMicrotarefa?: string;
 }
 
@@ -145,35 +146,25 @@ const UpdateTask = () => {
                         )}
                     />
                     <Controller
-                        name="descricao"
+                        name="descricaoMicrotarefa"
                         control={control}
                         rules={{ required: false }}
-                        defaultValue={task?.descricao}
-                        render={({ field }) => (
-                            <TextField {...field} label="Descrição" variant="outlined" fullWidth sx={{ marginBottom: '1rem' }} error={!!errors.descricao} helperText={errors.descricao?.message} />
-                        )}
-                    />
-
-                    <Controller
-                        name="dataMicrotarefa"
-                        control={control}
-                        rules={{ required: false }}
-                        defaultValue={task?.dataMicrotarefa}
+                        defaultValue={task?.descricaoMicrotarefa}
                         render={({ field }) => (
                             <TextField
                                 {...field}
-                                label="Data"
+                                label="Descrição"
                                 variant="outlined"
                                 fullWidth
                                 sx={{ marginBottom: '1rem' }}
-                                error={!!errors.dataMicrotarefa}
-                                helperText={errors.dataMicrotarefa?.message}
+                                error={!!errors.descricaoMicrotarefa}
+                                helperText={errors.descricaoMicrotarefa?.message}
                             />
                         )}
                     />
 
                     <Button type="submit" fullWidth color="primary" variant="contained">
-                       Atualizar Microtarefa
+                        Atualizar Microtarefa
                     </Button>
                 </form>
             </GridContent>
