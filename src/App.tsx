@@ -1,14 +1,24 @@
-import React from 'react';
-import './App.css';
+import { BrowserRouter } from "react-router-dom";
+import GlobalStyles from "./Styles/globalStyle";
+import Routes from "./routes";
+import { VagasProvider } from "./Hooks/useVagas";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
-export const App: React.FunctionComponent = () => {
-  return (  
-    <h1>
-      Hello!
-
-    </h1>
-    
+const App = (): JSX.Element => {
+  
+  
+  return (
+      <VagasProvider>
+          <BrowserRouter>
+              <Routes />
+          <ToastContainer/>
+          </BrowserRouter>
+          <GlobalStyles />
+      </VagasProvider>
   );
 };
+
+export default App;

@@ -1,0 +1,41 @@
+[
+    {
+        "id": 1,
+        "nome": "João Silva",
+        "status": "Desempregado",
+        "DataNascimento": "01/05/1990",
+        "cpf": "123.456.789-10",
+        "senha": "123456",
+        "email": "joao@email.com",
+        "idade": 20,
+        "cidade": "Rio de Janeiro",
+        "estado": "RJ",
+        "pais": "Brasil",
+        "telefone": "21 99999-9999",
+        "celular": "21 99999-9999",
+        "linkedin": "https://www.linkedin.com/in/joao-silva-9b9b0111b/",
+        "github": "www.github.com/joao-silva",
+        "curriculo": "www.curriculo.com/joao-silva",
+        "micro_tarefas":[
+        {
+            "nome": "Micro Tarefa 1",
+            "descricao": "Descrição da micro tarefa 1",
+            "data_inicio": "01/05/2020",
+            "data_fim": "01/05/2020",
+            "status": false,
+            "repositorio_entrega": "www.entrega.com/joao-silva"
+        }
+        ],
+        "biografia":{
+          "experiencia": "Desenvolvedor de software",
+          "formacao": "Graduado em Engenharia de Software",
+          "descricao_profissional": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec euismod, nisi eu consectetur consectetur, nisi nisi consectetur nisi, euismod nisi nisi euismod nisi. Donec euismod, nisi eu consectetur consectetur, nisi nisi consectetur nisi, euismod nisi nisi euismod nisi. Donec euismod, nisi eu consectetur consectetur, nisi nisi consectetur nisi, euismod nisi nisi euismod nisi. Donec euismod, nisi eu consectetur consectetur, nisi nisi consectetur nisi, euismod nisi nisi euismod nisi. Donec euismod, nisi eu consectetur consectetur, nisi nisi consectetur nisi, euismod nisi nisi euismod nisi. Donec euismod, nisi eu consectetur consectetur, nisi nisi consectetur nisi, euismod nisi nisi euismod nisi. Donec euismod, nisi eu consectetur consectetur, nisi nisi consectetur nisi, euismod nisi nisi euismod nisi. Donec euismod, nisi eu consectetur consectetur, nisi nisi consectetur nisi, euismod nisi nisi euismod nisi. Donec euismod, nisi eu consectetur consectetur, nisi nisi consectetur nisi, euismod nisi nisi euismod nisi. Donec euismod, nisi eu consectetur consectetur, nisi nisi consectetur nisi, euismod nisi nisi euismod nisi. Donec euismod, nisi eu consectetur consectet",
+          "habilidades": {
+            "micro_tarefas": "React, Angular, Vue, NodeJS, Express, MongoDB",
+            "senioridade": "Senior",
+            "idiomas": "Inglês, Espanhol, Português"
+          }
+        }
+        
+}
+]

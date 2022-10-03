@@ -1,0 +1,39 @@
+[
+{
+    "id":"1",
+    "nomeEmpresa":"Empresa 1",
+    "cidade":"Sao Paulo",
+    "usuario":"usuario1",
+    "estado":"SP",
+    "telefone":"(11) 99999-9999",
+    "email":"empresa@email.com",
+    "site":"www.empresa.com.br",
+    "localidade": "Rua 1, nº 1, Bairro 1, Cidade 1, Estado 1",
+    "logo":"img/logo.png",
+    "cnpj": "123456789",
+    "biografia":{
+        "img_empresa":"img/logo.png",
+        "nome":"Empresa 1",
+        "descricao":"Descrição da empresa 1",
+        "ramo da empresa":"Ramo da empresa 1"
+    },
+    "vagas":[
+        {
+            "id":"1",
+            "titulo":"Vaga 1",
+            "descricao":"Descrição da vaga 1",
+            "requisitos":"Requisitos da vaga 1",
+            "beneficios":"Beneficios da vaga 1",
+            "salario":"R$ 1.000,00",
+            "data":"01/01/2018",
+            "status": true,
+            "horario":"08:00 as 18:00",
+            "localidade":"Rua 1, nº 1, Bairro 1, Cidade 1, Estado 1",
+            "contato":"(11) 99999-9999",
+            "modelo_trabalho": "hibrido",
+            "email":"empresa@email.com"
+        }
+    ]
+
+}
+]
