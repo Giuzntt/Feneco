@@ -3,10 +3,11 @@ import { FaPlus } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useVagas } from "../../Hooks/useVagas";
 import { BoxHeader, GridContentPanel } from "./styles";
+import {useLayoutEffect } from "react";
 
 const PanelPage = () =>{
 
-    const { vagas, deleteJob } = useVagas()
+    const { vagas, deleteJob, loadVagas } = useVagas()
 
     // create array list state  to save the data from the api
 
@@ -14,6 +15,9 @@ const PanelPage = () =>{
 
     let navigate = useNavigate()
 
+    useLayoutEffect(() => {
+        loadVagas()
+    }, [])
         
 
     async function deleteVaga(id: string | undefined) {
@@ -66,12 +70,16 @@ const PanelPage = () =>{
                                             Descrição da vaga
                                             <Typography variant="body1">{vaga.descricao}</Typography>
                                         </Typography>
+                                        <Typography variant="h5" component="div">
+                                            Beneficios
+                                            <Typography variant="body1">{vaga.beneficios}</Typography>
+                                        </Typography>
                                     </CardContent>
                                     <CardActions>
                                         <Button size="small" variant="contained" onClick={() => navigate(`/panel/${vaga.id}`)}>
                                             EDITAR
                                         </Button>
-                                        <Button size="small" variant="contained">
+                                        <Button size="small" variant="contained" onClick={() => navigate(`/microtask/${vaga.id}`)}>
                                             TAREFAS
                                         </Button>
                                         <Button size="small" variant="contained" onClick={() => deleteVaga(vaga.id)}>

@@ -151,7 +151,7 @@ const CreateOrUpdateJob = () => {
                         rules={{ required: false }}
                         defaultValue={vaga?.beneficios}
                         render={({ field }) => (
-                            <TextField {...field} label="Baneficios" variant="outlined" fullWidth sx={{ marginBottom: '1rem' }} error={!!errors.beneficios} helperText={errors.beneficios?.message} />
+                            <TextField {...field} label="Beneficios" variant="outlined" fullWidth sx={{ marginBottom: '1rem' }} error={!!errors.beneficios} helperText={errors.beneficios?.message} />
                         )}
                     />
 

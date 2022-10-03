@@ -14,7 +14,7 @@ const App = (): JSX.Element => {
       <VagasProvider>
           <BrowserRouter>
               <Routes />
-          <ToastContainer />
+          <ToastContainer/>
           </BrowserRouter>
           <GlobalStyles />
       </VagasProvider>

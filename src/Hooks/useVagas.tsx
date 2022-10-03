@@ -32,9 +32,9 @@ interface VagasContextData {
     vagas: IVagaProps[];
     findTaskById: (id: string | undefined) => Promise<void>;
     createTask: (data: ITasksProps) => Promise<void>;
-    tasks: ITasksProps[];
     deleteJob: (id: string | undefined) => Promise<void>;
     updateJob: (data: IVagaProps, id: string | undefined) => Promise<void>;
+    loadVagas: () => Promise<void>;
 }
 
 const VagasContext = React.createContext<VagasContextData>(
@@ -43,10 +43,10 @@ const VagasContext = React.createContext<VagasContextData>(
 
 export function VagasProvider({ children }: VagasProviderProps) {
   const [vagas, setVagas] = useState<IVagaProps[]>([]);
-  const [tasks, setTasks] = useState<ITasksProps[]>([]);
 
   
   useEffect(() => {
+    
 
     loadVagas()
     
@@ -76,7 +76,7 @@ export function VagasProvider({ children }: VagasProviderProps) {
     const response = await api_vagas.get(`/vagas/${id}/work`);
     let array: IVagaProps[] = [];
     array.push(response.data);
-    setTasks(array);
+    
     setVagas(array);
   }
 
@@ -89,7 +89,7 @@ export function VagasProvider({ children }: VagasProviderProps) {
           // create toastify
           toast.success("Vaga criada com sucesso!");
 
-          setTasks([...tasks, response.data]);
+          setVagas([...vagas, response.data]);
         } else if (response.status === 400) {
           toast.error("Erro ao criar vaga!");
         }
@@ -107,7 +107,7 @@ export function VagasProvider({ children }: VagasProviderProps) {
                       // create toastify
                       toast.success('Vaga atualizada com sucesso!');
 
-                      setTasks([...tasks, response.data]);
+                      setVagas([...vagas, response.data]);
                   } else if (response.status === 400) {
                       toast.error('Erro ao atualizar vaga!');
                   }
@@ -137,7 +137,7 @@ export function VagasProvider({ children }: VagasProviderProps) {
   
 
 
-  return <VagasContext.Provider value={{ deleteJob, tasks, vagas, findTaskById, createTask, updateJob }}>{children}</VagasContext.Provider>;
+  return <VagasContext.Provider value={{ deleteJob, vagas, findTaskById, createTask, updateJob, loadVagas }}>{children}</VagasContext.Provider>;
 }
 
 export function useVagas() {
