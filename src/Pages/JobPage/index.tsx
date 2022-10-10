@@ -1,9 +1,10 @@
 import {   Box, Button, Card, CardActions, CardContent, Divider, Grid, Typography  } from "@mui/material";
-
+import { useEffect } from "react";
 import {  useNavigate  } from "react-router-dom";
 import NoVagas from "../../Assets/images/no-vagas.jpg"
 import { useVagas } from "../../Hooks/useVagas";
 import { HomeContent } from "./styles";
+
 
 
 
@@ -14,7 +15,9 @@ const HomePage = () => {
   const { vagas, findTaskById } = useVagas();
   
  
+  useEffect(()=>{
 
+  },[vagas])
 
 
 
@@ -79,7 +82,7 @@ const HomePage = () => {
                               </Typography>
 
                               <Typography variant="body2" sx={{ textAlign: 'center' }}>
-                                 {vaga.microtarefa===true? 'Sim': 'Não'} 
+                                  {vaga.microtarefa === true ? 'Sim' : 'Não'}
                               </Typography>
                               <Divider />
                               <Typography variant={'h5'} sx={{ fontSize: 14, textAlign: 'center', mt: 2 }} color="text.secondary" gutterBottom>
@@ -91,7 +94,13 @@ const HomePage = () => {
                               <Divider />
                           </CardContent>
                           <CardActions>
-                              <Button size="small" variant="contained" onClick={() => getWorkbyId(vaga.id)} color={'warning'} fullWidth>
+                              <Button size="small" variant="contained" onClick={() => getWorkbyId(vaga.id)} sx={{ width: '100%', backgroundColor: '#FDC201', color: '#fff',
+                                  '&:hover': {
+                                      backgroundColor: '#FDC201',
+                                      color: '#fff',
+                                  },
+
+                            }}>
                                   Candidatar-se
                               </Button>
                           </CardActions>

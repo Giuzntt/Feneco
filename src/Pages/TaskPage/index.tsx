@@ -74,8 +74,14 @@ const TaskPage = () => {
                                             alignItems: 'center'
                                         }}
                                     >
-                                        <Button size="small" variant="outlined"
-                                        color="warning"
+                                        <Button size="small" variant="contained"
+                                        
+                                        sx={{  backgroundColor: '#FDC201', color: '#fff',
+                                  '&:hover': {
+                                      backgroundColor: '#FDC201',
+                                      color: '#fff',
+                                  }
+                                }}
                                         >
                                             ENTREGAR
                                         </Button>
