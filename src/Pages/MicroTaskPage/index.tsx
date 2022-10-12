@@ -3,9 +3,10 @@ import { useState, useLayoutEffect, useEffect } from 'react';
 import { FaArrowLeft, FaPlus } from "react-icons/fa";
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { toast } from "react-toastify";
+import { createConditionalTypeNode } from "typescript";
 import { api_task, api_vagas } from "../../api/api";
 import { IVagaProps } from "../../Hooks/useVagas";
-import { BoxTask, GridContainer } from "./styles"
+import { BoxTask, CardContentCandidato, GridContainer } from "./styles"
 
 
 interface ITaskProps {
@@ -16,12 +17,23 @@ interface ITaskProps {
     dataMicrotarefa?: string;
 }
 
+interface ICandidatoProps {
+       nome?: string;
+      email?: string;
+      telefone?: string;
+      descricao?: string;
+      linkedin?: string;
+      curriculo?: string;
+}
+
+
 
 
 const MicroTaskPage = () => {
     
     const [vaga, setVaga] = useState<IVagaProps>({})
     const [tasks, setTasks] = useState<ITaskProps[]>([])
+    const [candidato, setCandidato] = useState<ICandidatoProps[]>([])
     const [isFetching, setFetching] = useState(false);
 
     
@@ -35,8 +47,10 @@ const MicroTaskPage = () => {
     
 
     useEffect(() => {
-            getVaga();
-            getMicroTask();
+       
+        getVaga();
+        getMicroTask();
+        getCandidato();
     },[])
 
  
@@ -50,15 +64,20 @@ const MicroTaskPage = () => {
                  setFetching(false);
              }
          }
-
+         async function getCandidato() {
+             try {
+                 setFetching(true);
+                 const { data } = await api_vagas.get(`vagas/${id}/work/${id}/candidato`);
+                
+                 setCandidato(data);
+             } finally {
+                 setFetching(false);
+             }
+         }
          async function getMicroTask() {
                 try {
                     setFetching(true);
                     const { data } = await api_task.get(`/vagas/${id}/work/`);
-                   
-
-
-                    
                     setTasks(data);
                 }
                 catch (error) {
@@ -156,53 +175,73 @@ const MicroTaskPage = () => {
                         </Typography>
                     </CardContent>
                 </Card>
+                <Card>
+                    <CardContentCandidato>
+                        {candidato.length === 0 ? (
+                            <Typography variant="h5" component="div">
+                                Nenhum candidato cadastrado
+                            </Typography>
+                        ) : (
+                            candidato.map((candidato) => (
+                                <>
+                                <Typography variant="h5" component="div">
+                                    Nome do Candidato
+                                    <Typography variant="body1" component="p">
+                                        {candidato.nome}
+                                    </Typography>
+                                </Typography>
+                                <Typography variant="h5" component="div">
+                                    Telefone
+                                    <Typography variant="body1" component="p">
+                                        {candidato.telefone}
+                                    </Typography>
+                                </Typography>
+                                </>
+                            ))
+                        )}
+                    </CardContentCandidato>
+                </Card>
                 <BoxTask>
                     <Typography variant="h5" color="initial">
                         Lista de Microtarefas
                     </Typography>
 
-                  
-                        <Button variant="contained" color="primary" startIcon={<FaPlus />} onClick={() => navigate(`/microtask/${vaga.id}/task`)}>
-                            Adicionar Tarefa
-                        </Button>
+                    <Button variant="contained" color="primary" startIcon={<FaPlus />} onClick={() => navigate(`/microtask/${vaga.id}/task`)}>
+                        Adicionar Tarefa
+                    </Button>
                 </BoxTask>
-                {
-                    tasks.map((task)=>{
-                        return (
-                            <Card key={task.id} sx={{ minWidth: 275 }}>
-                                <CardContent>
-                                    <Typography variant="h5" component="div">
-                                        Nome da Microtarefa
-                                        <Typography variant="body1">{task.nomeMicrotarefa}</Typography>
-                                    </Typography>
+                {tasks.map((task) => {
+                    return (
+                        <Card key={task.id} sx={{ minWidth: 275 }}>
+                            <CardContent>
+                                <Typography variant="h5" component="div">
+                                    Nome da Microtarefa
+                                    <Typography variant="body1">{task.nomeMicrotarefa}</Typography>
+                                </Typography>
 
-                                    <Typography variant="h5" component="div">
-                                        Descrição da Microtarefa
-                                        <Typography variant="body1">{task.descricaoMicrotarefa}</Typography>
-                                    </Typography>
-                                </CardContent>
-                                <CardActions>
-                                    <Button
-                                        size="small"
-                                        variant="contained"
-                                        onClick={() => {
-                                            navigate(`/microtask/${vaga.id}/updatetask/${task.id}`);
-                                        }}
-                                    >
-                                        EDITAR
-                                    </Button>
+                                <Typography variant="h5" component="div">
+                                    Descrição da Microtarefa
+                                    <Typography variant="body1">{task.descricaoMicrotarefa}</Typography>
+                                </Typography>
+                            </CardContent>
+                            <CardActions>
+                                <Button
+                                    size="small"
+                                    variant="contained"
+                                    onClick={() => {
+                                        navigate(`/microtask/${vaga.id}/updatetask/${task.id}`);
+                                    }}
+                                >
+                                    EDITAR
+                                </Button>
 
-                                    <Button size="small" variant="contained" onClick={() => handleDelete(task.id)}>
-                                        EXCLUIR
-                                    </Button>
-                                </CardActions>
-                            </Card>
-                        );
-                    }
-
-
-                    )   
-                }
+                                <Button size="small" variant="contained" onClick={() => handleDelete(task.id)}>
+                                    EXCLUIR
+                                </Button>
+                            </CardActions>
+                        </Card>
+                    );
+                })}
             </GridContainer>
         </>
     );

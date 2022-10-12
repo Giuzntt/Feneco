@@ -35,7 +35,7 @@ const TaskPage = () => {
 
     return (
         <>
-            <Typography variant="h4" color="gray" sx={{ textAlign: 'center', mt: 2, mb: 2 }}>
+            <Typography variant="h4" color="#FDC201" sx={{ textAlign: 'center', mt: 2, mb: 2 }}>
                 Microtarefas Disponiveis:
             </Typography>
             <Grid
@@ -74,8 +74,17 @@ const TaskPage = () => {
                                             alignItems: 'center'
                                         }}
                                     >
-                                        <Button size="small" variant="outlined"
-                                        color="warning"
+                                        <Button
+                                            size="small"
+                                            variant="contained"
+                                            sx={{
+                                                backgroundColor: '#FDC201',
+                                                color: '#fff',
+                                                '&:hover': {
+                                                    backgroundColor: '#FDC201',
+                                                    color: '#fff'
+                                                }
+                                            }}
                                         >
                                             ENTREGAR
                                         </Button>

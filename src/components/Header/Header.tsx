@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ContainerHeader } from "./styles";
-import Logo from "../../Assets/logo.svg";
+import Logo from "../../Assets/logo2.svg";
 
 interface HeaderProps{
     isLogged: boolean;
@@ -13,69 +13,61 @@ interface HeaderProps{
 // Create component header
 export default function Header({ isLogged, isPanel }: HeaderProps) {
     return (
-      <ContainerHeader>
-        <div>
-          <Link to={"/"}>
-            <img src={Logo} alt="Imagem Logo" />
-          </Link>
-          <ul>
-            {
-              isLogged=== false ? (
-                <>
-                  <Link to={"/"}>
-                    <li> Nossa empresa</li>
-                  </Link>
-                  
-                  <Link to={"/Login"}>
-                    <li>Login</li>
-                  </Link>
-                  
-                </>
-              ):(
-                <>{
-
-                    isPanel === true ? (
+        <ContainerHeader>
+            <div>
+                <Link to={'/'}>
+                    <img src={Logo} alt="Imagem Logo" />
+                </Link>
+                <ul>
+                    {isLogged === false ? (
                         <>
-                          <Link to={"/vagas"}>
-                            <li> Vagas</li>
-                          </Link>
-                          <Link to={"/microtarefas"}>
-                            <li>Microtarefas</li>
-                          </Link>
-                          <Link to={"/perfil"}>
-                            <li>Perfil</li>
-                          </Link>
-                          <Link to={"/"}>
-                            <li>Sair</li>
-                          </Link>
+                            <Link to={'/'}>
+                                <li> Nossa empresa</li>
+                            </Link>
+
+                            <Link to={'/Login'}>
+                                <li>Login</li>
+                            </Link>
                         </>
-                      ) : (
+                    ) : (
                         <>
-                          <Link to={"/panel"}>
-                            <li> Painel</li>
-                          </Link>
-                          <Link to={"/perfil-company"}>
-                            <li>Perfil</li>
-                          </Link>
-                          <Link to={"/"}>
-                            <li>Sair</li>
-                          </Link>
+                            {isPanel === true ? (
+                                <>
+                                    <Link to={'/vagas'}>
+                                        <li> Vagas</li>
+                                    </Link>
+                                    <Link to={'/training'}>
+                                        <li> Treinamentos</li>
+                                    </Link>
+                                    <Link to={'/microtarefas'}>
+                                        <li>Microtarefas</li>
+                                    </Link>
+                                    <Link to={'/perfil'}>
+                                        <li>Perfil</li>
+                                    </Link>
+                                    <Link to={'/'}>
+                                        <li>Sair</li>
+                                    </Link>
+                                </>
+                            ) : (
+                                <>
+                                    <Link to={'/panel'}>
+                                        <li> Painel</li>
+                                    </Link>
+
+                                    <Link to={'/perfil-company'}>
+                                        <li>Perfil</li>
+                                    </Link>
+                                    <Link to={'/'}>
+                                        <li>Sair</li>
+                                    </Link>
+                                </>
+                            )}
                         </>
-                      )
-
-                    }
-
-
-                
-                
-                </>
-              )
-
-            }
-         
-          </ul>
-        </div>
-      </ContainerHeader>
+                    )}
+                </ul>
+            </div>
+        </ContainerHeader>
     );
     }
 

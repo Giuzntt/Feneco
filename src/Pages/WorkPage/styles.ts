@@ -1,33 +1,90 @@
-import { Box, styled } from "@mui/material";
+import {  Card, Grid, styled } from "@mui/material";
 
 
 
-export const BoxHeader = styled(Box)`
-    display: flex;
-    margin-top: 20px;
+interface IWorkPageProps {
+    ischeck?: boolean;
+}
+
+export const WorkPageContainer = styled(Grid)`
+    min-height: 80vh;
+    padding: 0 60px;
+    margin: 0 auto;
+    max-width: 1440px;
+    display: grid;
+    gap: 0 2rem;
     justify-content: center;
     align-items: center;
-    gap: 120px;
-    
-`;    
-export const BoxWork = styled(Box)`
-    background-color: #FDC201;
-    border: 1px solid #FDC201;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    padding: 10px;
-    max-width: 600px;
-    min-height: 200px;
-    margin: 0 auto;
+    .MuiTypography-root {
+        font-size: 1.5rem;
+        font-weight: 500;
+        color: #c3c3c3;
+        margin-bottom: 20px;
+    }
 
-    ul li {
-        /* align center */
+    .MuiBox-root {
         display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    /* access tag FaCheck */
+    .arrow {
+        color: #fdc201;
+        font-size: 5.5rem;
+        margin: 0 10px;
+    }
+    .arrow-2 {
+        color: #c3c3c3;
+        font-size: 5.5rem;
+        margin: 0 10px;
+    }
+`;
+
+
+export const CardWork = styled(Card)<IWorkPageProps>`
+    width: 100%;
+    height: 200px;
+    max-width: 200px;
+    margin: 0 auto;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+    .MuiCardContent-root {
+        display: grid;
         justify-content: center;
         align-items: center;
-        color: #FFFF;
+        height: 100%;
+        gap: 1rem;
 
-        gap: 10px;
-        list-style: none;
+        .icon {
+            display: inline-block;
+            margin: 0 auto;
+            color: ${({ ischeck }) => (ischeck ? '#FDC201' : '#C3C3C3')};
+            width: 100%;
+            height: 100%;
+        }
+        .icon2 {
+            display: inline-block;
+            margin: 0 auto;
+            color: #fdc201;
+            width: 100%;
+            height: 100%;
+        }
+
+        .MuiTypography-h5 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: ${({ ischeck }) => (ischeck ? '#FDC201' : '#C3C3C3')};
+            margin-bottom: 20px;
+        }
+        .MuiTypography-h6 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #fdc201;
+            margin-bottom: 20px;
+        }
     }
-`;    
+`;

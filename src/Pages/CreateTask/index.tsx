@@ -14,6 +14,7 @@ interface IMyForm {
     nomeMicrotarefa?: string;
     descricaoMicrotarefa?: string;
     dataMicrotarefa?: string;
+    microtarefa?: boolean;
     beneficios?: string;
 }
 
@@ -57,7 +58,8 @@ const CreateTask = () => {
 
     async function onSubmit(data: IMyForm) {
             console.log(id)
-            console.log(data);
+            data.microtarefa = true;
+            
             createTask(data)
         
             

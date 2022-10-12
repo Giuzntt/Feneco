@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { Box, Grid } from "@mui/material";
+import { Box, CardContent, Grid } from "@mui/material";
 
 
 export const GridContainer = styled(Grid)`
@@ -115,5 +115,22 @@ export const BoxTask = styled(Box)`
     }
 `;
 
+
+export const CardContentCandidato = styled(CardContent)`
+    display: grid;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: 1440px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+
+    .MuiTypography-root {
+       
+    }        
+
+`
 
 
