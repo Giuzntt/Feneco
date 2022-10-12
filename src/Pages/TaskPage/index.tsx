@@ -23,7 +23,7 @@ const TaskPage = () => {
     }, [])
 
     async function getWorkbyId () {
-        await api_task.get(`vagas/1/work/7`).then(response => {
+        await api_task.get(`vagas/1/work/1`).then(response => {
             setTasks(response.data)
          
       

@@ -12,16 +12,14 @@ export function TrainingPage(){
         <>
             <GridContainer container>
                 <Card className="card-banner">
-                    <CardMedia component="img" 
-                    src={backlogo}
-                  alt="banner" />
+                    <CardMedia component="img" src={backlogo} alt="banner" />
 
                     <CardContent>
                         <Typography gutterBottom variant="h5" component="div">
-                           Você pode tirar suas dúvidas sobre os cursos de programação, em nosso canal do youtube.
+                            Você pode tirar suas dúvidas sobre os cursos de programação, em nosso canal do youtube.
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
-                           Para tirar suas dúvidas sobre os cursos de programação, em nosso canal do youtube.
+                            Para tirar suas dúvidas sobre os cursos de programação, em nosso canal do youtube.
                         </Typography>
                     </CardContent>
                     <CardActions>
@@ -41,7 +39,7 @@ export function TrainingPage(){
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button size="large" variant="contained" color="warning" href="https://www.udemy.com/course/curso-html5-css3-e-javascript/" fullWidth>
+                            <Button size="large" variant="contained" color="warning" href="https://www.alura.com.br/cursos-online-front-end/html-css" fullWidth>
                                 Quero conhecer o curso
                             </Button>
                         </CardActions>
@@ -57,7 +55,7 @@ export function TrainingPage(){
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button size="large" variant="contained" color="warning" href="https://www.udemy.com/course/curso-html5-css3-e-javascript/" fullWidth>
+                            <Button size="large" variant="contained" color="warning" href="https://www.alura.com.br/cursos-online-front-end/html-css" fullWidth>
                                 Quero conhecer o curso
                             </Button>
                         </CardActions>
@@ -73,7 +71,12 @@ export function TrainingPage(){
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button size="large" variant="contained" href="https://www.udemy.com/course/curso-html5-css3-e-javascript/" fullWidth>
+                            <Button
+                                size="large"
+                                variant="contained"
+                                href="https://www.udemy.com/course/javascript-curso-completo/?gclid=Cj0KCQjwy5maBhDdARIsAMxrkw2A1T4T_3-OLt3L2wyF4rfSe-QYTT5L-Xanq92t7tFOXk_DvFGFmlEaAmozEALw_wcB&utm_campaign=JavaScript_new_v.PROF_la.PT_cc.BR_ti.6368&utm_content=deal4584&utm_medium=udemyads&utm_source=adwords-intl&utm_term=_._ag_101403466053_._kw_javascript+alura_._ad_604173550297_._de_c_._dm__._pl__._ti_kwd-967448030837_._li_1001773_._pd__._"
+                                fullWidth
+                            >
                                 Quero conhecer o curso
                             </Button>
                         </CardActions>
