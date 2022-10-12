@@ -35,7 +35,7 @@ const Router = (): JSX.Element => {
           <Route path="/" element={<LayoutUser />}>
               <Route path="vagas">
                   <Route index element={<JobPage />} />
-                  <Route path=":id/work" element={<WorkPage />} />
+                  <Route path=":id/" element={<WorkPage />} />
               </Route>
               <Route path="microtarefas" element={<TaskPage />} />
               <Route path="training" element={<TrainingPage />} />

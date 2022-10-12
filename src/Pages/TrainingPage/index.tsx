@@ -13,7 +13,7 @@ export function TrainingPage(){
             <GridContainer container>
                 <Card className="card-banner">
                     <CardMedia component="img" 
-                    image={backlogo} 
+                    src={backlogo}
                   alt="banner" />
 
                     <CardContent>

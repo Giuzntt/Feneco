@@ -13,7 +13,7 @@ export const GridContainer = styled(Grid)`
 
     .card-banner {
         width: 100%;
-        box-shadow:  0 0 0 0;
+        box-shadow: 0 0 0 0;
         margin: 1rem auto;
         max-width: 1180px;
         height: 100%;
@@ -43,6 +43,10 @@ export const GridContainer = styled(Grid)`
             background: #fdc201;
             padding: 0.5rem 1.5rem;
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+            transition: all 0.3s ease-in-out;
+            &:hover {
+                transform: scale(1.1);
+            }
         }
 
         &::before {
@@ -80,8 +84,8 @@ export const GridContainer = styled(Grid)`
             transition: all 0.3s ease-in-out;
 
             .MuiCardMedia-root {
-                width: 100%;
-                max-height: 200px;
+                max-width: 100%;
+                height: auto;
                 overflow: hidden;
                 object-fit: cover;
             }

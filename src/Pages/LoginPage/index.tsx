@@ -20,8 +20,8 @@ export default function LoginPage() {
    function fakeLogin() {
     if (valueLogin === 'admin' && valuePassword === 'admin') {
       //  use Link to panel page react-router-dom
-
       window.location.href = '/panel';
+      toast.success('Login efetuado com sucesso');
     } else {
       toast.error('Usuário ou senha incorretos');
     }

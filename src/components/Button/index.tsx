@@ -16,28 +16,29 @@ interface IButtonProps {
 
 }
 
-
-// Pensar em uma maneira criar um botão reutilizavel em várias telas com React Router Dom
-
-const theme = createTheme({
-    palette: {
-        primary: {
-            main: "#FCC400",
-        }
-    },
-})
-
-
-
 export  function CustomButton({ variant, size, startIcon, children, to, onClick }: IButtonProps) {
     return (
-        <ThemeProvider theme={theme}>
-            <Link to={to} style={{ textDecoration: 'none', color: 'inherit', width: '100%' }}>
-                <ButtonStyled variant={variant} size={size} fullWidth startIcon={startIcon} onClick={onClick}>
-                    {children}
-                </ButtonStyled>
-            </Link>
-        </ThemeProvider>
+        <Link to={to} style={{ textDecoration: 'none', color: 'inherit', width: '100%' }}>
+            <ButtonStyled
+                variant={variant}
+                size={size}
+                fullWidth
+                startIcon={startIcon}
+                onClick={onClick}
+                sx={{
+                    backgroundColor: '#FDC201',
+                    color: '#fff',
+                    border: '1px solid #FDC201',
+                    '&:hover': {
+                        backgroundColor: '#FDC201',
+                        color: '#fff',
+                        border: '1px solid #FDC201'
+                    }
+                }}
+            >
+                {children}
+            </ButtonStyled>
+        </Link>
     );
 }
 

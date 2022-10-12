@@ -26,4 +26,6 @@ export const HomeContent = styled(Grid)`
     gap: 20px;
     padding: 10px 60px;
   }
+
+  
 `;

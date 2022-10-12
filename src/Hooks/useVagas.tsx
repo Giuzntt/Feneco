@@ -9,6 +9,8 @@ export interface IVagaProps {
   nomeVaga?: string;
   descricao?: string;
   tipoVaga?: string;
+  candidatura?: boolean;
+  entrevista?: boolean;
   microtarefa?: boolean;
   beneficios?: string;
   microtarefas?: ITasksProps;
@@ -31,7 +33,7 @@ interface VagasProviderProps {
 
 interface VagasContextData {
     vagas: IVagaProps[];
-    findTaskById: (id: string | undefined) => Promise<void>;
+    // findTaskById: (id: string | undefined) => Promise<void>;
     createTask: (data: ITasksProps) => Promise<void>;
     deleteJob: (id: string | undefined) => Promise<void>;
     updateJob: (data: IVagaProps, id: string | undefined) => Promise<void>;
@@ -72,14 +74,8 @@ export function VagasProvider({ children }: VagasProviderProps) {
           });
   }
 
-  async function findTaskById(id: string | undefined): Promise<void> {
+ 
 
-    const response = await api_vagas.get(`/vagas/${id}/work`);
-    let array: IVagaProps[] = [];
-    array.push(response.data);
-    
-    setVagas(array);
-  }
 
  
 
@@ -99,6 +95,9 @@ export function VagasProvider({ children }: VagasProviderProps) {
 
         });
       }
+
+
+      
     
       async function updateJob(data: IVagaProps, id: string | undefined): Promise<void> {
           await api_vagas
@@ -138,7 +137,7 @@ export function VagasProvider({ children }: VagasProviderProps) {
   
 
 
-  return <VagasContext.Provider value={{ deleteJob, vagas, findTaskById, createTask, updateJob, loadVagas }}>{children}</VagasContext.Provider>;
+  return <VagasContext.Provider value={{ deleteJob, vagas, createTask, updateJob, loadVagas }}>{children}</VagasContext.Provider>;
 }
 
 export function useVagas() {

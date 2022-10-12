@@ -1,8 +1,8 @@
 import { Button, Card, CardActions, CardContent, Typography } from "@mui/material";
-import { FaPlus } from "react-icons/fa";
+import { FaEye, FaPlus, FaRegChartBar, FaUserTie } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useVagas } from "../../Hooks/useVagas";
-import { BoxHeader, GridContentPanel } from "./styles";
+import { BoxHeader, GridContentPanel, StatusContainer } from "./styles";
 import {useLayoutEffect } from "react";
 
 const PanelPage = () =>{
@@ -28,8 +28,28 @@ const PanelPage = () =>{
 
     return (
         <>
-            
+            <StatusContainer>
+                <Card>
+                    <CardContent>
+                        <Typography variant="h5" component="div">
+                            Vagas
+                        </Typography>
 
+                        <Typography variant="h6">{vagas.length}</Typography>
+                        <FaRegChartBar className="icon" />
+                    </CardContent>
+                </Card>
+
+                <Card>
+                    <CardContent>
+                        <Typography variant="h5" component="div">
+                            Candidatos
+                        </Typography>
+                        <Typography variant="h6">0</Typography>
+                        <FaUserTie className="icon" />
+                    </CardContent>
+                </Card>
+            </StatusContainer>
             <BoxHeader>
                 <Link
                     to="/create/"
@@ -40,12 +60,11 @@ const PanelPage = () =>{
                         gap: '0.5rem'
                     }}
                 >
-                    <Button variant="contained" color="primary" startIcon={<FaPlus />}>
+                    <Button variant="contained" startIcon={<FaPlus />}>
                         Adicionar Vaga
                     </Button>
                 </Link>
             </BoxHeader>
-
             <GridContentPanel container>
                 {vagas.length === 0 ? (
                     <Typography variant="h4" component="h1" sx={{ textAlign: 'center', marginTop: '2rem', fontFamily: 'Open Sans', fontWeight: 'bold', color: '#929090' }}>
@@ -76,11 +95,13 @@ const PanelPage = () =>{
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
+
+                                      
                                         <Button size="small" variant="contained" onClick={() => navigate(`/panel/${vaga.id}`)}>
                                             EDITAR
                                         </Button>
                                         <Button size="small" variant="contained" onClick={() => navigate(`/microtask/${vaga.id}`)}>
-                                            TAREFAS
+                                            GERENCIAR
                                         </Button>
                                         <Button size="small" variant="contained" onClick={() => deleteVaga(vaga.id)}>
                                             EXCLUIR

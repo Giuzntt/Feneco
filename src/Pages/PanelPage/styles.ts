@@ -1,18 +1,77 @@
 import styled from "@emotion/styled";
-import { Grid } from "@mui/material";
+import { Box, Grid } from "@mui/material";
 
+
+
+export const StatusContainer = styled(Box)`
+    max-width: 1440px;
+    margin: 2rem auto;
+    padding: 0 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    gap: 4rem;
+
+    .MuiCard-root {
+        /* remover valores padrao*/
+        margin: 0;
+        width: 250px;
+        max-width: 250px;
+        height: 150px;
+        max-height: 100%;
+        background-color: #fdd369;
+
+        .MuiCardContent-root {
+            display: grid;
+            flex-direction: column;
+            grid-template-columns: 2fr 1fr;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem;
+            height: 100%;
+            width: 100%;
+            max-width: 100%;
+            max-height: 100%;
+            position: relative;
+
+            .MuiTypography-h5 {
+                font-size: 1.5rem;
+                font-weight: 600;
+                text-transform: uppercase;
+                color: #fff;
+            }
+            .MuiTypography-h6 {
+                font-size: 1.5rem;
+                font-weight: 600;
+                color: #fff;
+            }
+
+            .icon {
+                display: inline-block;
+                margin-right: auto;
+                width: 50px;
+                height: 50px;
+                color: #cfa948;
+            }
+        }
+    }
+
+`;
 
 export const BoxHeader = styled(Grid)`
     max-width: 1440px;
+    margin: 0 auto;
     padding: 0 60px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     flex-direction: row;
   
     .MuiButton-root {
         /* align end         */
-        margin: 10px 0 0 auto;
+        margin: 1rem 0;
         background-color: #FDD369;
         font-weight: 600;
         font-size: 14px;

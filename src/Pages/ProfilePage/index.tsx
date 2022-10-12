@@ -1,4 +1,4 @@
-import {  Typography } from "@mui/material"
+import {  Box, Tab, Tabs, Typography } from "@mui/material"
 import { BoxContentProfile, BoxProfile, ProfileContainer } from "./styles"
 import user from '../../Assets/images/user.png'
 
@@ -33,6 +33,8 @@ const ProfilePage = () => {
                 </div>
             </BoxProfile>
             <BoxContentProfile>
+          
+
                 <div className="user-description">
                     <Typography variant="h5">
                         {' '}

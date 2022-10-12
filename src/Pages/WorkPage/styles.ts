@@ -3,7 +3,7 @@ import {  Card, Grid, styled } from "@mui/material";
 
 
 interface IWorkPageProps {
-    isCheck?: boolean;
+    ischeck?: boolean;
 }
 
 export const WorkPageContainer = styled(Grid)`
@@ -62,14 +62,28 @@ export const CardWork = styled(Card)<IWorkPageProps>`
         .icon {
             display: inline-block;
             margin: 0 auto;
-            color: ${({ isCheck }) => (isCheck ? '#FDC201' : '#C3C3C3')};
+            color: ${({ ischeck }) => (ischeck ? '#FDC201' : '#C3C3C3')};
             width: 100%;
             height: 100%;
         }
+        .icon2 {
+            display: inline-block;
+            margin: 0 auto;
+            color: #fdc201;
+            width: 100%;
+            height: 100%;
+        }
+
         .MuiTypography-h5 {
             font-size: 1.2rem;
             font-weight: 500;
-            color: ${({ isCheck }) => (isCheck ? '#FDC201' : '#C3C3C3')};
+            color: ${({ ischeck }) => (ischeck ? '#FDC201' : '#C3C3C3')};
+            margin-bottom: 20px;
+        }
+        .MuiTypography-h6 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #fdc201;
             margin-bottom: 20px;
         }
     }
