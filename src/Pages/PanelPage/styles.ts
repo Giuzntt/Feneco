@@ -20,12 +20,12 @@ export const StatusContainer = styled(Box)`
         max-width: 250px;
         height: 150px;
         max-height: 100%;
-        background-color: #fdd369;
+        background-color: #FDC201;
 
         .MuiCardContent-root {
             display: grid;
             flex-direction: column;
-            grid-template-columns: 2fr 1fr;
+            grid-template-columns: 4fr 1fr;
             align-items: center;
             justify-content: center;
             gap: 1rem;
@@ -53,11 +53,10 @@ export const StatusContainer = styled(Box)`
                 margin-right: auto;
                 width: 50px;
                 height: 50px;
-                color: #cfa948;
+                color: #c09b1a;
             }
         }
     }
-
 `;
 
 export const BoxHeader = styled(Grid)`
@@ -68,22 +67,20 @@ export const BoxHeader = styled(Grid)`
     justify-content: flex-start;
     align-items: center;
     flex-direction: row;
-  
+
     .MuiButton-root {
         /* align end         */
         margin: 1rem 0;
-        background-color: #FDD369;
+        background-color: #fdc201;
         font-weight: 600;
         font-size: 14px;
-        font-family: 'Open Sans', sans-serif;     
+        font-family: 'Open Sans', sans-serif;
 
-       
-      &:hover {
-        background-color: #FDD369;
-      }
+        &:hover {
+            background-color: #fdd369;
+        }
     }
-
-`
+`;
 
 
 export const GridContentPanel = styled(Grid)`
@@ -109,28 +106,47 @@ export const GridContentPanel = styled(Grid)`
         gap: 1rem;
         padding: 1rem;
         box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-        border-radius: 10px;
-        background-color: #fff;
+        border-radius: 5px;
+
+        /* animated background */
+        background: #fff;
+        animation: gradient 5s ease infinite;
+
+        border: 1px solid #fdc201;
+        /* create border in linear gradient */
 
         .MuiCardContent-root {
             /* create three columns       */
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            grid-template-rows: 1fr;
-            gap: 0 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
             width: 100%;
             height: 100%;
+            max-width: 100%;
             padding: 0 2rem;
-            align-items: center;
 
-            justify-content: centert;
+            justify-content: center;
+
+            .MuiTypography-h3 {
+                font-size: 1.5rem;
+                font-weight: 400;
+                color: #323232;
+                text-transform: uppercase;
+            }
             .MuiTypography-h5 {
                 margin-top: 1rem;
                 font-size: 20px;
-                font-weight: 800;
+                font-weight: 600;
                 font-family: 'Open Sans', sans-serif;
                 text-align: start;
-                color: #000000;
+                color: #323232;
+                .MuiTypography-body1 {
+                    font-size: 14px;
+                    font-weight: 600;
+                    font-family: 'Open Sans', sans-serif;
+                    text-align: start;
+                    color: #323232;
+                }
             }
         }
 
@@ -141,16 +157,19 @@ export const GridContentPanel = styled(Grid)`
             gap: 0.8rem;
             width: 100%;
             height: 100%;
+            max-width: 100%;
+            z-index: 1;
             padding: 0 2rem;
             align-items: center;
             justify-content: end;
+            
 
             .MuiButton-root:first-of-type {
                 font-size: 16px;
                 font-weight: 600;
                 color: #fff;
                 font-family: 'Open Sans', sans-serif;
-                background-color: #fdd369;
+                background-color: #fdc201;
             }
             .MuiButton-root {
                 font-size: 16px;
@@ -162,9 +181,10 @@ export const GridContentPanel = styled(Grid)`
             .MuiButton-root:last-of-type {
                 font-size: 16px;
                 font-weight: 600;
-                color: #fff;
+
                 font-family: 'Open Sans', sans-serif;
-                background-color: #fa6800;
+                background: #fa6800;
+                border: 1px solid #fa6800;
             }
         }
 

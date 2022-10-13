@@ -23,7 +23,9 @@ export function TrainingPage(){
                         </Typography>
                     </CardContent>
                     <CardActions>
-                        <Button size="small">CONHECER</Button>
+                        <Button size="small" href="https://discord.gg/h2T2bceB">
+                            CONHECER
+                        </Button>
                     </CardActions>
                 </Card>
                 {/* create card containing tranings */}

@@ -1,5 +1,5 @@
 import { Button, Card, CardActions, CardContent, Typography } from "@mui/material";
-import { FaEye, FaPlus, FaRegChartBar, FaUserTie } from "react-icons/fa";
+import { FaEdit, FaEye, FaPen, FaPlus, FaRegChartBar, FaTrash, FaUserTie } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useVagas } from "../../Hooks/useVagas";
 import { BoxHeader, GridContentPanel, StatusContainer } from "./styles";
@@ -76,10 +76,7 @@ const PanelPage = () =>{
                             <>
                                 <Card sx={{ minWidth: 275 }} key={index}>
                                     <CardContent>
-                                        <Typography variant="h5" component="div">
-                                            Nome da vaga
-                                            <Typography variant="body1">{vaga.nomeVaga}</Typography>
-                                        </Typography>
+                                        <Typography variant="h3">{vaga.nomeVaga}</Typography>
 
                                         <Typography variant="h5" component="div">
                                             Tipo Vaga
@@ -95,15 +92,13 @@ const PanelPage = () =>{
                                         </Typography>
                                     </CardContent>
                                     <CardActions>
-
-                                      
-                                        <Button size="small" variant="contained" onClick={() => navigate(`/panel/${vaga.id}`)}>
+                                        <Button size="small" variant="contained" startIcon={<FaPen/>} onClick={() => navigate(`/panel/${vaga.id}`)}>
                                             EDITAR
                                         </Button>
-                                        <Button size="small" variant="contained" onClick={() => navigate(`/microtask/${vaga.id}`)}>
+                                        <Button size="small" variant="contained" startIcon={<FaEye />} onClick={() => navigate(`/microtask/${vaga.id}`)}>
                                             GERENCIAR
                                         </Button>
-                                        <Button size="small" variant="contained" onClick={() => deleteVaga(vaga.id)}>
+                                        <Button size="small" variant="contained" startIcon={<FaTrash />} onClick={() => deleteVaga(vaga.id)}>
                                             EXCLUIR
                                         </Button>
                                     </CardActions>

@@ -5,15 +5,16 @@ import { api_vagas } from "../api/api";
 
 
 export interface IVagaProps {
-  id?: string;
-  nomeVaga?: string;
-  descricao?: string;
-  tipoVaga?: string;
-  candidatura?: boolean;
-  entrevista?: boolean;
-  microtarefa?: boolean;
-  beneficios?: string;
-  microtarefas?: ITasksProps;
+    id?: string;
+    nomeVaga?: string;
+    descricao?: string;
+    salario?: string;
+    tipoVaga?: string;
+    candidatura?: boolean;
+    entrevista?: boolean;
+    microtarefa?: boolean;
+    beneficios?: string;
+    microtarefas?: ITasksProps;
 }
 
 interface ITasksProps {
