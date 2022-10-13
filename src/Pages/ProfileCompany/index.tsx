@@ -11,7 +11,7 @@ const ProfileCompany = () => {
             <BoxProfile>
                 <div className="user-logo">
                     <img src={user} alt="" />
-                    <Typography variant="body1">FIAP</Typography>
+                    <Typography variant="body1">EY</Typography>
                 </div>
                 <div className="user-grid">
                     <div className="user-grid-item">
@@ -19,9 +19,8 @@ const ProfileCompany = () => {
 
                         {/* create paragraph here */}
                         <Typography variant="subtitle1">
-                            A Fiap é uma empresa de tecnologia com foco em educação, que usa tecnologias emergentes para criar experiências de aprendizado únicas. A Fiap acredita que a tecnologia,
-                            ciência e inovação são os grandes vetores de transformação do amanhã e promove continuamente a cultura do conhecimento contínuo, ágil e personalizável entre seus mais de
-                            10.000 alunos, cursos de Graduação e MBAs.
+                            As mudanças demográficas e as novas tecnologias estão mudando a forma, o porquê e onde as pessoas trabalham, além dos requisitos e das expectativas da força de trabalho.
+                            Para garantir as habilidades que solicitam, as organizações precisam de uma nova abordagem para atrair, desenvolver e inspirar seus trabalhadores.
                         </Typography>
                     </div>
                 </div>
@@ -35,11 +34,11 @@ const ProfileCompany = () => {
                         <hr />
                     </Typography>
                     <Typography variant="subtitle1">
-                        Somos mais de 1.000 agentes de transformação colaborando com o futuro da educação, espalhados pelos principais centros de negócios de São Paulo. Temos espírito empreendedor.
-                        Assumimos riscos, somos ágeis e atuamos de forma criativa para entregar resultados. Além disso, acreditamos em um futuro de disrupção por meio da tecnologia.
+                        Os processos, sistemas e políticas utilizados pelas empresas para apoiar a sua força de trabalho são frequentemente complexos e fragmentados. No entanto, os trabalhadores de
+                        hoje - que variam de baby boomers a millennials, funcionários em tempo integral a contratados e freelancers - esperam cada vez mais uma interface que reflita a experiência de
+                        seus clientes: simples, transparente e móvel.
                     </Typography>
                 </div>
-               
             </BoxContentProfile>
         </ProfileContainer>
     );

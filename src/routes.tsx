@@ -16,6 +16,7 @@ import RegisterPage from "./Pages/RegisterPage";
 import TaskPage from "./Pages/TaskPage";
 import { TrainingPage } from "./Pages/TrainingPage";
 import { WorkPage } from "./Pages/WorkPage";
+import { CoursePage } from "./Pages/CoursePage";
 
 
 
@@ -39,6 +40,7 @@ const Router = (): JSX.Element => {
               </Route>
               <Route path="microtarefas" element={<TaskPage />} />
               <Route path="training" element={<TrainingPage />} />
+              <Route path="course" element={<CoursePage />} />
               <Route path="perfil" element={<ProfilePage />} />
           </Route>
 

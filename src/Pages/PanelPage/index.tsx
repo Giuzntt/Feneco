@@ -1,5 +1,5 @@
 import { Button, Card, CardActions, CardContent, Typography } from "@mui/material";
-import { FaEdit, FaEye, FaPen, FaPlus, FaRegChartBar, FaTrash, FaUserTie } from "react-icons/fa";
+import {  FaEye, FaPen, FaPlus, FaRegChartBar, FaTrash, FaUserTie } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { useVagas } from "../../Hooks/useVagas";
 import { BoxHeader, GridContentPanel, StatusContainer } from "./styles";
