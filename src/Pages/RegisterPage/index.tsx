@@ -268,21 +268,21 @@ export default function RegisterPage() {
               multiline={true}
             />
             <CustomTextField
-              placeholder="O que possou fazer bem?"
+              placeholder="O que posso fazer bem?"
               type="text"
               helperText="Pressione Enter para pular linha"
               
               multiline={true}
             />
             <CustomTextField
-              placeholder="O que possou fazer bem?"
+              placeholder="O que posso ser pago para fazer?"
               type="text"
               helperText="Pressione Enter para pular linha"
               
               multiline={true}
             />
             <CustomTextField
-              placeholder="O que possou fazer bem?"
+              placeholder="O que o mundo precisa?"
               type="text"
               helperText="Pressione Enter para pular linha"
               
