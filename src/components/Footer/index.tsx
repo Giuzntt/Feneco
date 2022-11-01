@@ -1,5 +1,5 @@
 import { FooterContainer, FooterContent } from "./styles";
-import logo from "../../Assets/logo.svg";
+import logo from "../../Assets/logo2.svg";
 import { FaFacebook, FaInstagram, FaLinkedin } from "react-icons/fa";
 
 const Footer = (): JSX.Element => {
