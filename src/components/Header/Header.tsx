@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { ContainerHeader } from "./styles";
-import Logo from "../../Assets/logo2.svg";
+import Logo from "../../Assets/logo.svg";
 
 interface HeaderProps{
     isLogged: boolean;
